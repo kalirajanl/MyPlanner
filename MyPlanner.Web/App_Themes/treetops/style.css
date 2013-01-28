@@ -1,0 +1,683 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    font-family: 'trebuchet ms' , arial, sans-serif;
+    padding: 0px;
+    margin: 0px;
+    font-size: .80em;
+    background: #E9E4C7 url(pattern.png);
+    text-align: left;
+    color: #555;
+}
+
+p
+{
+    margin: 0px;
+    padding: 0px 0px 16px 0px;
+    line-height: 1.7em;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+    color: #362C20;
+    padding: 0 0 5px 0;
+}
+
+h1, h4
+{
+    font: normal 175% "century gothic" , arial;
+    margin: 0 0 15px 0;
+    padding: 15px 20px 5px 0;
+    color: #444;
+}
+
+h2, h5
+{
+    padding: 0 0 5px 0;
+    font: normal 110% arial;
+    text-transform: uppercase;
+    letter-spacing: 0;
+}
+
+h3, h6
+{
+    color: #888;
+    font: normal 95% arial;
+    letter-spacing: 0;
+    padding: 0 0 15px 0;
+}
+
+h4
+{
+    color: #362C20;
+}
+
+h5, h6
+{
+    color: #129991;
+}
+
+img
+{
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+a, a:hover
+{
+    border-bottom: 1px dotted;
+    color: #444;
+    outline: none;
+    text-decoration: none;
+}
+
+a:hover
+{
+    border-bottom: 1px solid;
+}
+
+form
+{
+    padding: 0;
+    margin: 0;
+}
+
+.left
+{
+    float: left;
+    width: auto;
+    margin-right: 10px;
+}
+
+.right
+{
+    float: right;
+    width: auto;
+    margin-left: 10px;
+}
+
+.center
+{
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+}
+
+blockquote
+{
+    margin: 20px 0;
+    padding: 10px 20px 0 20px;
+    border: 1px solid #E5E5DB;
+    background: #FFF;
+}
+
+ul
+{
+    margin: 2px 0px 18px 16px;
+    padding: 0px;
+}
+
+ul li
+{
+    list-style-type: square;
+    margin: 0px 0px 6px 0px;
+    padding: 0px;
+}
+
+ol
+{
+    margin: 8px 0px 0px 24px;
+    padding: 0px;
+}
+
+ol li
+{
+    margin: 0px 0px 11px 0px;
+    padding: 0px;
+}
+
+#header, #logo, #menubar, #panel, #site_content, #footer, #site_content_popup
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#header
+{
+    height: 73px;
+    background: url(back_small.png) repeat-x;
+}
+
+#logo
+{
+    /*width: 870px;*/
+    width: 95%;
+    position: relative;
+    height: 32px;
+}
+
+#logo #logo_text
+{
+    position: absolute;
+    left: 0;
+}
+
+#logo h1
+{
+    font: normal 200% "century gothic" , arial, sans-serif;
+    border-bottom: 0;
+    text-transform: none;
+    letter-spacing: 0.1em;
+    padding: 5px 0 0 16px;
+    color: #FFF;
+    margin: 0;
+}
+
+#logo h2
+{
+    font: normal 100% "century gothic" , arial, sans-serif;
+    border-bottom: 0;
+    text-transform: none;
+    letter-spacing: 0.1em;
+    padding: 12px 0 0 26px;
+    color: #FFF;
+    margin: 0;
+}
+
+#menubar
+{
+    /*width: 870px;*/
+    width: 95%;
+    height: 45px;
+    padding-left: 5px;
+}
+
+ul#menu
+{
+    float: left;
+    margin: 0;
+}
+
+ul#menu li
+{
+    float: left;
+    margin: 10px 0 0 0;
+    padding: 0 0 0 14px;
+    list-style: none;
+}
+
+ul#menu li a
+{
+    letter-spacing: 0.1em;
+    font-size: 105%;
+    display: block;
+    float: left;
+    height: 20px;
+    text-decoration: none;
+    padding: 8px 26px 5px 12px;
+    text-align: center;
+    color: #FFF;
+    border: none;
+}
+
+ul#menu li.tab_selected a
+{
+    height: 22px;
+    padding: 8px 26px 5px 12px;
+}
+
+ul#menu li.tab_selected
+{
+    margin: 10px 0 0 0;
+    background: url(tabs.png) no-repeat 0 0px;
+}
+
+ul#menu li.tab_selected a
+{
+    background: url(tabs.png) no-repeat 100% 0px;
+    color: #A2AB3B;
+}
+
+ul#menu li.tab_selected a:hover, ul#menu li a:hover
+{
+    color: #A2AB3B;
+}
+
+#panel
+{
+    width: 432px;
+    height: 74px;
+    border: 15px solid #E9E4C7;
+}
+
+#site_content
+{
+    /*width: 875px;*/
+    width: 96%;
+    height: 470px;
+    background: #FFF;
+    padding-top: 5px;
+    padding-left: 10px;
+    overflow: auto;
+    float: none;
+}
+
+#site_content_bottom
+{
+    /*width: 875px;*/
+    width: 96%;
+    height: 5px;
+    clear: both;
+    background: url(site_content_bottom.png) no-repeat;
+}
+
+.sidebar
+{
+    float: right;
+    width: 178px;
+    padding: 20px 25px 15px 15px;
+}
+
+.sidebar ul
+{
+    border-top: 1px solid #D6D9C9;
+    width: 178px;
+    padding-top: 4px;
+    margin: 4px 0px 30px 0px;
+}
+
+.sidebar li
+{
+    list-style: none;
+    padding: 0px 0px 4px 0px;
+    border-bottom: 1px solid #D6D9C9;
+}
+
+.sidebar li a, .sidebar li a:hover
+{
+    text-decoration: none;
+    padding: 0px 0px 0px 18px;
+    display: block;
+    background: transparent url(arrow.png) no-repeat left center;
+    color: #555;
+    border: none;
+}
+
+.sidebar li a.selected, .sidebar li a:hover, .sidebar li a.selected:hover
+{
+    background: transparent url(arrow_select.png) no-repeat left center;
+}
+
+#content
+{
+    text-align: left;
+    width: 497px;
+    padding: 20px 10px 15px 26px;
+}
+
+#footer
+{
+    /*width: 730px;*/
+    width: 80%;
+    padding: 18px 20px 4px 20px;
+    text-align: center;
+    color: #444;
+}
+
+.alternate_colour
+{
+    color: #A2AB3B;
+}
+
+.form_settings
+{
+    margin: 15px 0 0 0;
+}
+
+.form_settings p
+{
+    padding: 0 0 4px 0;
+}
+
+.form_settings span
+{
+    float: left;
+    text-align: left;
+    vertical-align: top;
+}
+
+.form_settings input, .form_settings textarea
+{
+    padding: 2px;
+    width: 299px;
+    font: 100% arial;
+    border: 1px solid #E5E5DB;
+    background: #FFF;
+    color: #47433F;
+}
+
+.form_settings .submit
+{
+    font: 100% arial;
+    border: 1px solid;
+    width: 99px;
+    margin: 0 0 0 206px;
+    height: 26px;
+    padding: 2px 0 3px 0;
+    cursor: pointer;
+    background: #3B3B3B;
+    color: #FFF;
+}
+
+.form_settings textarea, .form_settings select
+{
+    font: 100% arial;
+    width: 299px;
+}
+
+.form_settings select
+{
+    width: 304px;
+}
+
+.form_settings .checkbox
+{
+    margin: 4px 0;
+    padding: 0;
+    width: 14px;
+    border: 0;
+    background: none;
+}
+
+.form_settings table
+{
+    margin: 4px 0;
+    padding: 2px 2px 2px 2px;
+}
+
+.form_settings tr
+{
+    margin: 4px 0;
+    padding: 2px 2px 2px 2px;
+}
+
+.form_settings td
+{
+    margin: 4px 0;
+    padding: 2px 2px 2px 2px;
+}
+
+.separator
+{
+    width: 100%;
+    height: 0;
+    border-top: 1px solid #D9D5CF;
+    border-bottom: 1px solid #FFF;
+    margin: 0 0 20px 0;
+}
+
+myptable
+{
+    margin: 10px 0 30px 0;
+}
+
+myptable tr th, myptable tr td
+{
+    text-align: left;
+    background: #3B3B3B;
+    color: #FFF;
+    padding: 7px 4px;
+}
+
+myptable tr td
+{
+    background: #CCCCCC;
+    color: #47433F;
+    border-top: 1px solid #FFF;
+}
+
+
+.SelectedDayContainer
+{
+    float: left;
+    text-align: left;
+    vertical-align: top;
+    padding-top: 10px;
+    padding-left: 0px;
+}
+
+.SelectedDayDetails
+{
+    text-align: left;
+    padding-top: 0px;
+    padding-left: 0px;
+    vertical-align: top;
+    height: 50px;
+    min-width: 280px;
+}
+
+.SelectedDayContainer
+{
+    width: 60px;
+    height: 50px;
+    vertical-align: top;
+    padding-top: 7px;
+    border-width: 2pt;
+    border-style: solid;
+}
+
+.SelectedDay
+{
+    font: 325% arial;
+}
+
+.CalendarContainer
+{
+    min-width: 180px;
+    text-align: right;
+}
+
+.label
+{
+    text-align: right;
+    vertical-align: text-top;
+    width: 75px;
+}
+
+.controlcontainer
+{
+    text-align: left;
+    vertical-align: text-top;
+    width: 105px;
+}
+
+.controlcontainerlarge
+{
+    text-align: left;
+    vertical-align: text-top;
+    width: 205px;
+}
+
+.button
+{
+}
+
+.buttonblue
+{
+    width: 50px;
+    background-color: Blue;
+}
+
+.buttongray
+{
+    width: 50px;
+    background-color: gray;
+}
+
+.hideControl
+{
+    display: none;
+}
+
+.tableClass
+{
+    width: 50%;
+    background-color: #fff;
+    margin: 5px 0 10px 0;
+    border: 1px solid #00CCFF;
+    border-collapse: collapse;
+}
+
+.tableClass td
+{
+    background: #fff;
+    font: bold 11px "Trebuchet MS" , Verdana, Arial, Helvetica, sans-serif;
+    padding: 6px 6px 6px 12px;
+    color: #4f6b72;
+    border-right: 1px solid #00CCFF;
+}
+
+.tableClass th
+{
+    background-position: #D5EDEF;
+    font: bold 11px "Trebuchet MS" , Verdana, Arial, Helvetica, sans-serif;
+    color: #4f6b72;
+    border-right: 1px solid #00CCFF;
+    border-bottom: 1px solid #00CCFF;
+    border-top: 1px solid #00CCFF;
+    border-left: 1px solid #00CCFF;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 6px 0px 6px 12px;
+    background: #D5EDEF;
+}
+
+
+.popupContainer
+{
+  
+    padding: 5px 5px 5px 5px;
+}
+
+.popuptableClass
+{
+    width: 96%;
+    background-color: #fff;
+    margin: 10px 0px 0px 10px;
+    padding: 5px 5px 5px 5px;
+}
+
+.popuptableClass td errorText, .popuptableClass td errorText span
+{
+    font-weight: bolder;
+    color: Red;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+.popuptableClass td
+{
+    background: #fff;
+    font: bold 11px "Trebuchet MS" , Verdana, Arial, Helvetica, sans-serif;
+    color: #4f6b72;
+    width:75px;
+}
+
+.popuptableClass td label
+{
+    background: #fff;
+    font: bold 11px "Trebuchet MS" , Verdana, Arial, Helvetica, sans-serif;
+    color: #4f6b72;
+    width:75px;
+    text-align:right;
+    vertical-align:top;
+}
+
+
+.popuptableClass th
+{
+    background-position: #D5EDEF;
+    font: bold 11px "Trebuchet MS" , Verdana, Arial, Helvetica, sans-serif;
+    color: #4f6b72;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 6px 0px 6px 12px;
+    background: #D5EDEF;
+}
+
+.MenuStyle
+{
+    background-color: #f5f5f5;
+    width: 120px;
+    position: absolute;
+    border: #d3d3d3 1px solid;
+}
+
+.MenuItem
+{
+    background-color: Transparent;
+}
+
+.MenuItem:hover
+{
+    background-color: #c2c2c2;
+}
+
+.MenuItem:active
+{
+    background-color: #c2c2c2;
+}
+
+.contextMenu
+{
+    background-color: #BECFEF;
+    border: 1px solid #94A8CD;
+    width: 120px;
+    position: absolute;
+}
+
+.contextMenu table
+{
+    padding: 10px 10px 10px 10px;
+}
+
+.contextMenu tr
+{
+    font: normal 12px Arial;
+    border: 1px solid #E4E1DE;
+    background-color: #9AB7E7;
+}
+
+.contextMenu td
+{
+    font: bold 11px "Trebuchet MS" , Verdana, Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+    border: 1px solid #E4E1DE;
+    padding: 5px 5px 5px 5px;
+}
+
+.contextMenu tr:active
+{
+    background-color: #00CCFF;
+}
+
+.contextMenu tr:hover
+{
+    background: #424242 url(grd_head.png) repeat-x top;
+    cursor: pointer;
+}
+
+.calendarbtnlocation
+{
+    margin-left:63px;
+    margin-top:-10px;
+}

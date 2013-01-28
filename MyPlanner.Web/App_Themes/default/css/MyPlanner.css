@@ -1,0 +1,33 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #e6e9ed;
+    font: 12px Arial, Helvetica, sans-serif;
+    color: #333;
+}
+
+#header {
+    height: 100px;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1a82f7), to(#2F2727));
+}
+
+   #header h1 {
+        margin: 0 20px;
+        border: none;
+        font-size: 16px;
+        color: red;
+    }
+
+.contentarea {
+    height: 560px;
+    vertical-align: top;
+    padding: 20px 0px 0px 15px;
+    font-size: 11px;
+    width: 100%;
+}

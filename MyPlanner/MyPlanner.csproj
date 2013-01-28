@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4B40CCD1-83AF-4109-BC88-48D18B4FE3BE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyPlanner</RootNamespace>
+    <AssemblyName>MyPlanner</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\Rajan\PublishArea\MyPlanner\20130117\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.8.0</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>E04A581B120DC0EBA0F6D86E2080807BBBD2D40D</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>MyPlanner_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>planner_16X16.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MyPlanner.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\Calendar\CtrlWeeklyView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Calendar\CtrlWeeklyView.Designer.cs">
+      <DependentUpon>CtrlWeeklyView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Calendar\CtrlCalendarList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Calendar\CtrlCalendarList.Designer.cs">
+      <DependentUpon>CtrlCalendarList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compass\CtrlViewWeeklyCompass.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Compass\CtrlViewWeeklyCompass.Designer.cs">
+      <DependentUpon>CtrlViewWeeklyCompass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compass\EditCompassRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compass\EditCompassRole.designer.cs">
+      <DependentUpon>EditCompassRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Calendar\frmWeeklyView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Calendar\frmWeeklyView.Designer.cs">
+      <DependentUpon>frmWeeklyView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Notes\CtrlDailyNotes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Notes\CtrlDailyNotes.Designer.cs">
+      <DependentUpon>CtrlDailyNotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Goals\EditGoal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Goals\EditGoal.Designer.cs">
+      <DependentUpon>EditGoal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Goals\EditGoalStep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Goals\EditGoalStep.designer.cs">
+      <DependentUpon>EditGoalStep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Mission\CtrlMission.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Mission\CtrlMission.Designer.cs">
+      <DependentUpon>CtrlMission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common\AppLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common\AppLogin.Designer.cs">
+      <DependentUpon>AppLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common\AppMDI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common\AppMDI.Designer.cs">
+      <DependentUpon>AppMDI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Common\frmMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Common\frmMaster.Designer.cs">
+      <DependentUpon>frmMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Goals\CtrlGoalsAndSteps.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Goals\CtrlGoalsAndSteps.Designer.cs">
+      <DependentUpon>CtrlGoalsAndSteps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Tasks\frmEditTask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Tasks\frmEditTask.designer.cs">
+      <DependentUpon>frmEditTask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Calendar\frmDailyView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Calendar\frmDailyView.Designer.cs">
+      <DependentUpon>frmDailyView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Planning\frmPlanOfWeek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Planning\frmPlanOfWeek.Designer.cs">
+      <DependentUpon>frmPlanOfWeek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Forms\Tasks\ctrlTasksList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Tasks\ctrlTasksList.Designer.cs">
+      <DependentUpon>ctrlTasksList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIHelpers\BaseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Mission\CtrlValue.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Mission\CtrlValue.designer.cs">
+      <DependentUpon>CtrlValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\PopupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIHelpers\Validators.cs" />
+    <Compile Include="Forms\Compass\CtrlWeeklyCompass.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Compass\CtrlWeeklyCompass.Designer.cs">
+      <DependentUpon>CtrlWeeklyCompass.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Calendar\CtrlWeeklyView.resx">
+      <DependentUpon>CtrlWeeklyView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Calendar\CtrlCalendarList.resx">
+      <DependentUpon>CtrlCalendarList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compass\CtrlViewWeeklyCompass.resx">
+      <DependentUpon>CtrlViewWeeklyCompass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compass\EditCompassRole.resx">
+      <DependentUpon>EditCompassRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Calendar\frmWeeklyView.resx">
+      <DependentUpon>frmWeeklyView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Goals\EditGoal.resx">
+      <DependentUpon>EditGoal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Goals\EditGoalStep.resx">
+      <DependentUpon>EditGoalStep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Mission\CtrlMission.resx">
+      <DependentUpon>CtrlMission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common\AppLogin.resx">
+      <DependentUpon>AppLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common\AppMDI.resx">
+      <DependentUpon>AppMDI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Common\frmMaster.resx">
+      <DependentUpon>frmMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Goals\CtrlGoalsAndSteps.resx">
+      <DependentUpon>CtrlGoalsAndSteps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Notes\CtrlDailyNotes.resx">
+      <DependentUpon>CtrlDailyNotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tasks\frmEditTask.resx">
+      <DependentUpon>frmEditTask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Calendar\frmDailyView.resx">
+      <DependentUpon>frmDailyView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Tasks\ctrlTasksList.resx">
+      <DependentUpon>ctrlTasksList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Planning\frmPlanOfWeek.resx">
+      <DependentUpon>frmPlanOfWeek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Forms\Mission\CtrlValue.resx">
+      <DependentUpon>CtrlValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIHelpers\PopupForm.resx">
+      <DependentUpon>PopupForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compass\CtrlWeeklyCompass.resx">
+      <DependentUpon>CtrlWeeklyCompass.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MyPlanner.BLL\MyPlanner.BLL.csproj">
+      <Project>{9D00AB1B-50DE-419A-A2D5-CD29E67B7466}</Project>
+      <Name>MyPlanner.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyPlanner.DAL\MyPlanner.DAL.csproj">
+      <Project>{5B2CACD3-545F-4698-AA33-DDCBE24A9CA2}</Project>
+      <Name>MyPlanner.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyPlanner.Models\MyPlanner.Models.csproj">
+      <Project>{B2D819DD-5243-4635-8E8E-0B5B30C41EE8}</Project>
+      <Name>MyPlanner.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SQL.Server.Compact.3.5">
+      <Visible>False</Visible>
+      <ProductName>SQL Server Compact 3.5 SP2</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\MyPlanner.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\MyPlanner.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\close_16X16.jpg" />
+    <Content Include="Images\close_32X32.jpg" />
+    <Content Include="Images\daily_16X16.jpg" />
+    <Content Include="Images\exit_16X16.jpg" />
+    <Content Include="Images\planner_16X16.jpg" />
+    <Content Include="Images\tick_16X16.jpg" />
+    <Content Include="Images\week_16X16.jpg" />
+    <Content Include="Images\workweek_16X16.jpg" />
+    <Content Include="planner_16X16.ico" />
+    <None Include="Images\gray_arrow_long.png" />
+    <None Include="Images\orange_arrow_long.png" />
+    <None Include="Images\gray_arrow_small.png" />
+    <None Include="Images\orange_arrow_small.png" />
+    <None Include="Images\green_arrow_long.png" />
+    <None Include="Images\green_arrow_small.png" />
+    <Content Include="Images\month_16X16.jpg" />
+    <Content Include="Images\plan_16X16.jpg" />
+    <Content Include="Images\save_16X16.jpg" />
+    <Content Include="Images\save_32X32.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

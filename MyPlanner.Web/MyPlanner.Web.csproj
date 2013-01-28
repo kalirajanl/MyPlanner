@@ -1,0 +1,851 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C000E688-1DA6-4557-A742-317034994B3C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyPlanner</RootNamespace>
+    <AssemblyName>MyPlanner</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Obout.Ajax.UI, Version=2.12.2512.3, Culture=neutral, PublicKeyToken=24f3c5cea456f322, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="obout_Calendar2_Net, Version=3.0.2.0, Culture=neutral, PublicKeyToken=b114d8766feff9ce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>External\obout\obout_Calendar2_Net.dll</HintPath>
+    </Reference>
+    <Reference Include="obout_EasyMenu_Pro, Version=3.11.3.1, Culture=neutral, PublicKeyToken=b76d93635057b0c1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>External\obout\obout_EasyMenu_Pro.dll</HintPath>
+    </Reference>
+    <Reference Include="obout_Grid_NET, Version=7.0.9.0, Culture=neutral, PublicKeyToken=5ddc49d3b53e3f98, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppPages\Calendar\WeekView.ascx" />
+    <Content Include="AppPages\Compass\BigRockEdit.aspx" />
+    <Content Include="AppPages\Compass\CompassRoleEdit.aspx" />
+    <Content Include="AppPages\Compass\CompassRoles.aspx" />
+    <Content Include="AppPages\Goals\GoalEdit.aspx" />
+    <Content Include="AppPages\Goals\GoalStepEdit.aspx" />
+    <Content Include="AppPages\Goals\ViewGoals.aspx" />
+    <Content Include="AppPages\Landing\Home.aspx" />
+    <Content Include="AppPages\Mission\MissionValueEdit.aspx" />
+    <Content Include="AppPages\Calendar\DailyView.aspx" />
+    <Content Include="AppPages\Mission\MissionView.aspx" />
+    <Content Include="AppPages\Goals\GoalsAndSteps.ascx" />
+    <Content Include="AppPages\Planning\PlanWeek.aspx" />
+    <Content Include="AppPages\Mission\MissionValues.ascx" />
+    <Content Include="AppPages\Compass\WeeklyCompass.ascx" />
+    <Content Include="AppPages\Tasks\TaskEdit.aspx" />
+    <Content Include="AppPages\Tasks\TaskListing.ascx" />
+    <Content Include="AppPages\Calendar\WeeklyView.aspx" />
+    <Content Include="AppPages\UserControls\Footer.ascx" />
+    <Content Include="AppPages\UserControls\Header.ascx" />
+    <Content Include="AppPages\UserControls\Menu.ascx" />
+    <Content Include="App_Data\MyPlanner.sdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Themes\default\css\MyPlanner.css" />
+    <Content Include="App_Themes\treetops\arrow.png" />
+    <Content Include="App_Themes\treetops\arrow_select.png" />
+    <Content Include="App_Themes\treetops\back.png" />
+    <Content Include="App_Themes\treetops\back_small.png" />
+    <Content Include="App_Themes\treetops\easymenu\CustomeStyle\margin.gif" />
+    <Content Include="App_Themes\treetops\easymenu\CustomeStyle\mid.gif" />
+    <Content Include="App_Themes\treetops\easymenu\CustomeStyle\mid_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\CustomeStyle\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\CustomeStyle\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\CustomeStyle\submenu_parent.gif" />
+    <Content Include="App_Themes\treetops\easymenu\CustomeStyle\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\CustomeStyle\s_bg.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Futura\bg_menuItem.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Futura\bg_menuItemOver.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Futura\bg_separator.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Futura\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Futura\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Futura\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal1\margin.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal1\mid.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal1\mid_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal1\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal1\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal1\submenu_parent.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal1\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal1\s_bg.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal2\diagonal_bw.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal2\diagonal_wb.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal2\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal2\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal2\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal3\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal3\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal3\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal4\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal4\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal5\bg.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal5\bg_a.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal5\gag.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal5\sep.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal5\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal5\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal5\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal5\s_bg.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal6\arrow.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal6\arrow_a.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal6\bg.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal6\bg_a.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal6\gag.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal6\gagf.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal6\gagl.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal6\gagl_a.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal6\il.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal6\ir.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal6\sep.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal6\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal6\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal6\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal6\s_bg.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal7\bg.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal7\bg_a.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal7\gagf.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal7\gagl.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal7\il.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal7\sep.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal7\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal7\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal7\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal7\s_bg.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal8\bg.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal8\bg_a.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal8\gagf.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal8\gagl.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal8\sep.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal8\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal8\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal8\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal8\s_bg.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal8\s_bg_a.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal9\le_1\bg_em_1.jpg" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal9\le_1\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal9\le_1\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal9\le_2\bg_em_2.JPG" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal9\le_2\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal9\le_2\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal9\le_3\bg_em_3.JPG" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal9\le_3\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal9\le_3\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal9\le_4\bg_em_4.JPG" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal9\le_4\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal9\le_4\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal9\le_5\bg_em_5.JPG" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal9\le_5\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal9\le_5\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontal9\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontalrtl\margin.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontalrtl\mid.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontalrtl\mid_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontalrtl\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontalrtl\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontalrtl\submenu_parent.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontalrtl\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Horizontalrtl\s_bg.gif" />
+    <Content Include="App_Themes\treetops\easymenu\MSDN2\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\MSDN\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Multiple\bg_separator_5.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Multiple\margin.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Multiple\mid.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Multiple\mid_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Multiple\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Multiple\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Multiple\submenu_4.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Multiple\submenu_5.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Multiple\submenu_parent.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Multiple\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Multiple\submenu_white_4.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Multiple\submenu_white_5.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Multiple\s_bg.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Multiple\s_bg_4.gif" />
+    <Content Include="App_Themes\treetops\easymenu\RightToLeft\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\RightToLeft\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Style10\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Style10\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Style10\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Style13\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Style13\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Style13\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Style1\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Style1\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Style1\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\style1_multiple_menus\margin.gif" />
+    <Content Include="App_Themes\treetops\easymenu\style1_multiple_menus\mid.gif" />
+    <Content Include="App_Themes\treetops\easymenu\style1_multiple_menus\mid_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\style1_multiple_menus\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\style1_multiple_menus\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\style1_multiple_menus\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\style1_multiple_menus\s_bg.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Style2\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Style2\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Style2\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\style2_multiple_menus\margin.gif" />
+    <Content Include="App_Themes\treetops\easymenu\style2_multiple_menus\mid.gif" />
+    <Content Include="App_Themes\treetops\easymenu\style2_multiple_menus\mid_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\style2_multiple_menus\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\style2_multiple_menus\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\style2_multiple_menus\submenu_parent.gif" />
+    <Content Include="App_Themes\treetops\easymenu\style2_multiple_menus\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\style2_multiple_menus\s_bg.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Style3\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Style3\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Style3\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Style9\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Style9\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Style9\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip10\roundcorner_left.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip10\roundcorner_left_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip10\roundcorner_mid.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip10\roundcorner_mid_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip10\roundcorner_right.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip10\roundcorner_right_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip10\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip11\roundcorner_left.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip11\roundcorner_left_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip11\roundcorner_mid.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip11\roundcorner_mid_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip11\roundcorner_right.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip11\roundcorner_right_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip11\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip12\roundcorner_left.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip12\roundcorner_left_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip12\roundcorner_mid.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip12\roundcorner_mid_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip12\roundcorner_right.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip12\roundcorner_right_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip12\separator.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip12\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip1\roundcorner_left.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip1\roundcorner_left_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip1\roundcorner_mid.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip1\roundcorner_mid_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip1\roundcorner_right.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip1\roundcorner_right_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip1\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip1\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip2\roundcorner_left.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip2\roundcorner_left_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip2\roundcorner_mid.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip2\roundcorner_mid_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip2\roundcorner_right.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip2\roundcorner_right_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip2\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip3\roundcorner_left.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip3\roundcorner_left_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip3\roundcorner_mid.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip3\roundcorner_mid_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip3\roundcorner_right.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip3\roundcorner_right_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip3\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip4\roundcorner_left.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip4\roundcorner_left_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip4\roundcorner_mid.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip4\roundcorner_mid_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip4\roundcorner_right.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip4\roundcorner_right_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip4\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip5\roundcorner_left.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip5\roundcorner_left_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip5\roundcorner_mid.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip5\roundcorner_mid_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip5\roundcorner_right.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip5\roundcorner_right_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip5\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip6\roundcorner_left.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip6\roundcorner_left_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip6\roundcorner_mid.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip6\roundcorner_mid_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip6\roundcorner_right.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip6\roundcorner_right_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip6\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip7\roundcorner_left.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip7\roundcorner_left_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip7\roundcorner_mid.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip7\roundcorner_mid_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip7\roundcorner_right.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip7\roundcorner_right_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip7\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip8\roundcorner_left.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip8\roundcorner_left_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip8\roundcorner_mid.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip8\roundcorner_mid_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip8\roundcorner_right.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip8\roundcorner_right_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip8\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip9\roundcorner_left.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip9\roundcorner_left_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip9\roundcorner_mid.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip9\roundcorner_mid_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip9\roundcorner_right.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip9\roundcorner_right_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip9\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\TabStrip9\Untitled-1 copy.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStripHorizontal\roundcorner_left.jpg" />
+    <Content Include="App_Themes\treetops\easymenu\TabStripHorizontal\roundcorner_left_over.jpg" />
+    <Content Include="App_Themes\treetops\easymenu\TabStripHorizontal\roundcorner_mid.jpg" />
+    <Content Include="App_Themes\treetops\easymenu\TabStripHorizontal\roundcorner_mid_over.jpg" />
+    <Content Include="App_Themes\treetops\easymenu\TabStripHorizontal\roundcorner_right.jpg" />
+    <Content Include="App_Themes\treetops\easymenu\TabStripHorizontal\roundcorner_right_over.jpg" />
+    <Content Include="App_Themes\treetops\easymenu\TabStripHorizontal\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\TabStripHorizontal\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStripYahoo\roundcorner_left.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStripYahoo\roundcorner_left_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStripYahoo\roundcorner_mid.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStripYahoo\roundcorner_mid_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStripYahoo\roundcorner_right.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStripYahoo\roundcorner_right_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TabStripYahoo\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Transparent\bg.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Transparent\bg_a.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Transparent\gag.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Transparent\sep.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Transparent\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Transparent\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Transparent\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Transparent\s_bg.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TSH_Horizontal\margin.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TSH_Horizontal\mid.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TSH_Horizontal\mid_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TSH_Horizontal\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\TSH_Horizontal\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TSH_Horizontal\submenu_parent.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TSH_Horizontal\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TSH_Horizontal\s_bg.gif" />
+    <Content Include="App_Themes\treetops\easymenu\TSH_TabStrip\roundcorner_left.jpg" />
+    <Content Include="App_Themes\treetops\easymenu\TSH_TabStrip\roundcorner_left_over.jpg" />
+    <Content Include="App_Themes\treetops\easymenu\TSH_TabStrip\roundcorner_mid.jpg" />
+    <Content Include="App_Themes\treetops\easymenu\TSH_TabStrip\roundcorner_mid_over.jpg" />
+    <Content Include="App_Themes\treetops\easymenu\TSH_TabStrip\roundcorner_right.jpg" />
+    <Content Include="App_Themes\treetops\easymenu\TSH_TabStrip\roundcorner_right_over.jpg" />
+    <Content Include="App_Themes\treetops\easymenu\TSH_TabStrip\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\TSH_TabStrip\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Vertical1\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Vertical1\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Verticalrtl\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Verticalrtl\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Vertical_Multiple\margin.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Vertical_Multiple\mid.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Vertical_Multiple\mid_over.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Vertical_Multiple\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Vertical_Multiple\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Vertical_Multiple\submenu_parent.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Vertical_Multiple\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Vertical_Multiple\s_bg.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Vsnet\bg_menu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Vsnet\bg_separator.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Vsnet\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Vsnet\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Vsnet\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\WindowsXP\bg_separator.gif" />
+    <Content Include="App_Themes\treetops\easymenu\WindowsXP\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\WindowsXP\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\WindowsXP\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Windows\bg_separator.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Windows\style.css" />
+    <Content Include="App_Themes\treetops\easymenu\Windows\submenu.gif" />
+    <Content Include="App_Themes\treetops\easymenu\Windows\submenu_white.gif" />
+    <Content Include="App_Themes\treetops\graphic.png" />
+    <Content Include="App_Themes\treetops\grids.css" />
+    <Content Include="App_Themes\treetops\images\add_icon.jpg" />
+    <Content Include="App_Themes\treetops\images\blank.gif" />
+    <Content Include="App_Themes\treetops\images\calendar.png" />
+    <Content Include="App_Themes\treetops\images\Chevron.gif" />
+    <Content Include="App_Themes\treetops\images\ChevronOverlay.png" />
+    <Content Include="App_Themes\treetops\images\date_picker1.gif" />
+    <Content Include="App_Themes\treetops\images\delete_icon.jpg" />
+    <Content Include="App_Themes\treetops\images\edit_icon.jpg" />
+    <Content Include="App_Themes\treetops\images\eisk-5-logo-x2.png" />
+    <Content Include="App_Themes\treetops\images\eisk-header-grad.png" />
+    <Content Include="App_Themes\treetops\images\eisk-logo.png" />
+    <Content Include="App_Themes\treetops\images\extras\ico-delete.png" />
+    <Content Include="App_Themes\treetops\images\extras\loader-modal.gif" />
+    <Content Include="App_Themes\treetops\images\IconHome.gif" />
+    <Content Include="App_Themes\treetops\images\listing\asc.png" />
+    <Content Include="App_Themes\treetops\images\listing\desc.png" />
+    <Content Include="App_Themes\treetops\images\listing\ico-edit.png" />
+    <Content Include="App_Themes\treetops\images\listing\ico-view.png" />
+    <Content Include="App_Themes\treetops\images\listing\sort-regular.png" />
+    <Content Include="App_Themes\treetops\JqueyUI\base.css" />
+    <Content Include="App_Themes\treetops\JqueyUI\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="App_Themes\treetops\JqueyUI\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="App_Themes\treetops\JqueyUI\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="App_Themes\treetops\JqueyUI\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="App_Themes\treetops\JqueyUI\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="App_Themes\treetops\JqueyUI\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="App_Themes\treetops\JqueyUI\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="App_Themes\treetops\JqueyUI\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="App_Themes\treetops\JqueyUI\images\ui-icons_222222_256x240.png" />
+    <Content Include="App_Themes\treetops\JqueyUI\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="App_Themes\treetops\JqueyUI\images\ui-icons_454545_256x240.png" />
+    <Content Include="App_Themes\treetops\JqueyUI\images\ui-icons_888888_256x240.png" />
+    <Content Include="App_Themes\treetops\JqueyUI\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="App_Themes\treetops\JqueyUI\jquery-ui.css" />
+    <Content Include="App_Themes\treetops\JqueyUI\jquery.ui.datepicker.css" />
+    <Content Include="App_Themes\treetops\JqueyUI\jquery.ui.theme.css" />
+    <Content Include="App_Themes\treetops\panel.jpg" />
+    <Content Include="App_Themes\treetops\pattern.png" />
+    <Content Include="App_Themes\treetops\site_content.png" />
+    <Content Include="App_Themes\treetops\site_content_bottom.png" />
+    <Content Include="App_Themes\treetops\style.css" />
+    <Content Include="App_Themes\treetops\tabs.png" />
+    <Content Include="App_Themes\treetops\treeview\Icons\2PCRemote.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\3star.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\ada.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\asp.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\aspx.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\atS.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\ball_blueS.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\ball_glass_blueS.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\ball_glass_greenS.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\ball_glass_redS.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\ball_glass_yellowS.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\ball_greenS.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\ball_redS.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\ball_yellowS.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\bfly.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\book.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\BookY.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\category.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\contact.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\delete.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\delete_test1.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\delete_test2.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\doc.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\dsChild.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\dsParent.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\dsRoot.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\flag.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\Folder.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\Folder_o.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\folder_old.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\folder_small.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\Folder_Y.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\goblet_bronzeS.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\GreenSquare.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\help.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\help_book.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\help_obook.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\help_page.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\hr.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\hr_l.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\ico_note.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\ie.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\ie_link.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\ie_link_old.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\ie_small.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\joypadS.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\lens.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\memobook.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\memobook_blue.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\minus.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\minus_l.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\minus_r.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\mydoc.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\n.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\new.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\obout_treeview2.css" />
+    <Content Include="App_Themes\treetops\treeview\Icons\oCalendar.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\oDrafts.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\oInbox.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\oInboxF.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\oJornal.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\oJunk.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\oMailbox.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\oMessage.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\oNotes.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\oOutlook.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\oRecycle.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\oSearch.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\oSearchF.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\oSent.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\oTasks.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\page.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\person.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\plus.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\plusik.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\plusik_l.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\plusik_r.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\print.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\prodgp.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\question.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\recycle.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\RedSquare.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\red_ball.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\refresh.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\scales.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\search.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\search_globe.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\Segment.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\shoprite.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\square_blueS.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\square_greenS.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\square_redS.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\square_yellowS.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\tree.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\triangle_blueS.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\triangle_greenS.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\triangle_redS.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\triangle_yellowS.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\vertical.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\woman1S.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\woman2S.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\woman3S.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\woman4S.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\workerS.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\xpAdmin.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\xpCdRom.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\xpDesktop.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\xpDriveA.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\xpFolder.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\xpLens.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\xpMyComp.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\xpMyDoc.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\xpNetPlace.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\xpNetwork.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\xpPanel.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\xpPrinter.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\xpRecentDoc.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\xpRecycle.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\xpShared.gif" />
+    <Content Include="App_Themes\treetops\treeview\Icons\YellowSquare.gif" />
+    <Content Include="App_Themes\treetops\treeview\images\close.gif" />
+    <Content Include="App_Themes\treetops\treeview\images\world_map_capitals.JPG" />
+    <Content Include="External\obout\AjaxControlToolkit.dll" />
+    <Content Include="External\obout\Microsoft.Office.Interop.Word.dll" />
+    <Content Include="External\obout\Microsoft.Vbe.Interop.dll" />
+    <Content Include="External\obout\Obout.Ajax.UI.dll" />
+    <Content Include="External\obout\Obout.Ajax.UI.XML" />
+    <Content Include="External\obout\obout_AJAXPage.dll" />
+    <Content Include="External\obout\obout_Calendar2_Net.dll" />
+    <Content Include="External\obout\obout_Calendar2_Net.XML" />
+    <Content Include="External\obout\obout_ComboBox.dll" />
+    <Content Include="External\obout\obout_ComboBox.XML" />
+    <Content Include="External\obout\obout_EasyMenu_Pro.dll" />
+    <Content Include="External\obout\obout_EasyMenu_Pro.XML" />
+    <Content Include="External\obout\obout_Flyout2_NET.dll" />
+    <Content Include="External\obout\obout_Flyout2_NET.XML" />
+    <Content Include="External\obout\obout_Grid_NET.dll" />
+    <Content Include="External\obout\obout_Grid_NET.XML" />
+    <Content Include="External\obout\obout_ImageZoom_NET.dll" />
+    <Content Include="External\obout\obout_ImageZoom_NET.XML" />
+    <Content Include="External\obout\obout_Interface.dll" />
+    <Content Include="External\obout\obout_Interface.XML" />
+    <Content Include="External\obout\obout_ListBox.dll" />
+    <Content Include="External\obout\obout_ListBox.XML" />
+    <Content Include="External\obout\obout_Show_Net.dll" />
+    <Content Include="External\obout\obout_Show_Net.XML" />
+    <Content Include="External\obout\obout_SlideMenu3_Pro_NET.dll" />
+    <Content Include="External\obout\obout_SlideMenu3_Pro_NET.XML" />
+    <Content Include="External\obout\obout_Splitter2_Net.dll" />
+    <Content Include="External\obout\obout_Splitter2_Net.XML" />
+    <Content Include="External\obout\obout_SuperForm.dll" />
+    <Content Include="External\obout\obout_SuperForm.XML" />
+    <Content Include="External\obout\obout_TextMenu.dll" />
+    <Content Include="External\obout\obout_TextMenu.XML" />
+    <Content Include="External\obout\obout_Tree_DB_Net.dll" />
+    <Content Include="External\obout\obout_Window_NET.dll" />
+    <Content Include="External\obout\obout_Window_NET.XML" />
+    <Content Include="Index.htm" />
+    <Content Include="Javascripts\jld\glDatePicker.min.js" />
+    <Content Include="Javascripts\jquery.min.js" />
+    <Content Include="Javascripts\JqueryUI\jquery-1.8.3.js" />
+    <Content Include="Javascripts\JqueryUI\jquery-ui.js" />
+    <Content Include="Javascripts\MyPlanner.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppPages\Calendar\WeekView.ascx.cs">
+      <DependentUpon>WeekView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\Calendar\WeekView.ascx.designer.cs">
+      <DependentUpon>WeekView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Compass\BigRockEdit.aspx.cs">
+      <DependentUpon>BigRockEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\Compass\BigRockEdit.aspx.designer.cs">
+      <DependentUpon>BigRockEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Compass\CompassRoleEdit.aspx.cs">
+      <DependentUpon>CompassRoleEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\Compass\CompassRoleEdit.aspx.designer.cs">
+      <DependentUpon>CompassRoleEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Compass\CompassRoles.aspx.cs">
+      <DependentUpon>CompassRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\Compass\CompassRoles.aspx.designer.cs">
+      <DependentUpon>CompassRoles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Goals\GoalEdit.aspx.cs">
+      <DependentUpon>GoalEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\Goals\GoalEdit.aspx.designer.cs">
+      <DependentUpon>GoalEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Goals\GoalStepEdit.aspx.cs">
+      <DependentUpon>GoalStepEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\Goals\GoalStepEdit.aspx.designer.cs">
+      <DependentUpon>GoalStepEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Goals\ViewGoals.aspx.cs">
+      <DependentUpon>ViewGoals.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\Goals\ViewGoals.aspx.designer.cs">
+      <DependentUpon>ViewGoals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Landing\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\Landing\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\MasterPages\Popup.Master.cs">
+      <DependentUpon>Popup.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\MasterPages\Popup.Master.designer.cs">
+      <DependentUpon>Popup.Master</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\MasterPages\Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\MasterPages\Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Mission\MissionValueEdit.aspx.cs">
+      <DependentUpon>MissionValueEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\Mission\MissionValueEdit.aspx.designer.cs">
+      <DependentUpon>MissionValueEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Calendar\DailyView.aspx.cs">
+      <DependentUpon>DailyView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\Calendar\DailyView.aspx.designer.cs">
+      <DependentUpon>DailyView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Mission\MissionView.aspx.cs">
+      <DependentUpon>MissionView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\Mission\MissionView.aspx.designer.cs">
+      <DependentUpon>MissionView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Goals\GoalsAndSteps.ascx.cs">
+      <DependentUpon>GoalsAndSteps.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\Goals\GoalsAndSteps.ascx.designer.cs">
+      <DependentUpon>GoalsAndSteps.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Planning\PlanWeek.aspx.cs">
+      <DependentUpon>PlanWeek.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\Planning\PlanWeek.aspx.designer.cs">
+      <DependentUpon>PlanWeek.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Mission\MissionValues.ascx.cs">
+      <DependentUpon>MissionValues.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\Mission\MissionValues.ascx.designer.cs">
+      <DependentUpon>MissionValues.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Compass\WeeklyCompass.ascx.cs">
+      <DependentUpon>WeeklyCompass.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\Compass\WeeklyCompass.ascx.designer.cs">
+      <DependentUpon>WeeklyCompass.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Tasks\TaskEdit.aspx.cs">
+      <DependentUpon>TaskEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\Tasks\TaskEdit.aspx.designer.cs">
+      <DependentUpon>TaskEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Tasks\TaskListing.ascx.cs">
+      <DependentUpon>TaskListing.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\Tasks\TaskListing.ascx.designer.cs">
+      <DependentUpon>TaskListing.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\Calendar\WeeklyView.aspx.cs">
+      <DependentUpon>WeeklyView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\Calendar\WeeklyView.aspx.designer.cs">
+      <DependentUpon>WeeklyView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\UIHelpers\BaseUserControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\UIHelpers\DefaultBasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\UIHelpers\PopupBasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\UIHelpers\Validators.cs" />
+    <Compile Include="AppPages\UserControls\Footer.ascx.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\UserControls\Footer.ascx.designer.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\UserControls\Header.ascx.cs">
+      <DependentUpon>Header.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\UserControls\Header.ascx.designer.cs">
+      <DependentUpon>Header.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AppPages\UserControls\Menu.ascx.cs">
+      <DependentUpon>Menu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppPages\UserControls\Menu.ascx.designer.cs">
+      <DependentUpon>Menu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyPlanner.BLL\MyPlanner.BLL.csproj">
+      <Project>{9D00AB1B-50DE-419A-A2D5-CD29E67B7466}</Project>
+      <Name>MyPlanner.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyPlanner.DAL\MyPlanner.DAL.csproj">
+      <Project>{5B2CACD3-545F-4698-AA33-DDCBE24A9CA2}</Project>
+      <Name>MyPlanner.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyPlanner.Models\MyPlanner.Models.csproj">
+      <Project>{B2D819DD-5243-4635-8E8E-0B5B30C41EE8}</Project>
+      <Name>MyPlanner.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\treetops\default.skin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Themes\default\images\" />
+    <Folder Include="App_Themes\treetops\images\list-view\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\default\default.skin" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppPages\MasterPages\Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppPages\MasterPages\Popup.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_Themes\treetops\easymenu\CustomeStyle\Thumbs.db" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1057</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

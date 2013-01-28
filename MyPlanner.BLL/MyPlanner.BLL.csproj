@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9D00AB1B-50DE-419A-A2D5-CD29E67B7466}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyPlanner.BLL</RootNamespace>
+    <AssemblyName>MyPlanner.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\BLLCategory.cs" />
+    <Compile Include="Common\BLLDailyNotes.cs" />
+    <Compile Include="Goal\BLLGoal.cs" />
+    <Compile Include="Goal\BLLGoalStep.cs" />
+    <Compile Include="Mission\BLLMission.cs" />
+    <Compile Include="Mission\BLLValue.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\BLLAppUser.cs" />
+    <Compile Include="Security\Tabs.cs" />
+    <Compile Include="Tasks\BLLTask.cs" />
+    <Compile Include="Tasks\BLLTaskPriority.cs" />
+    <Compile Include="Tasks\BLLTaskStatus.cs" />
+    <Compile Include="WeeklyPlanning\BLLBigRock.cs" />
+    <Compile Include="WeeklyPlanning\BLLCompassItem.cs" />
+    <Compile Include="WeeklyPlanning\BLLCompassRole.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyPlanner.DAL\MyPlanner.DAL.csproj">
+      <Project>{5B2CACD3-545F-4698-AA33-DDCBE24A9CA2}</Project>
+      <Name>MyPlanner.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyPlanner.Models\MyPlanner.Models.csproj">
+      <Project>{B2D819DD-5243-4635-8E8E-0B5B30C41EE8}</Project>
+      <Name>MyPlanner.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
