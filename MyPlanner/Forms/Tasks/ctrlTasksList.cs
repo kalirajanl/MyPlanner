@@ -16,28 +16,32 @@ namespace MyPlanner
 
         private bool _showStatus = true;
         private bool _showPriority = true;
+        private bool _isDailyView = false;
 
         public CtrlTasksList()
         {
             InitializeComponent();
+            _isDailyView = true;
         }
 
-        public CtrlTasksList(AppUser usr, DateTime forDate)
+        public CtrlTasksList(AppUser usr, DateTime forDate, bool IsDailyView)
         {
             InitializeComponent();
             CurrentUser = usr;
             CurrentDate = forDate;
             _showStatus = true;
             _showPriority = true;
+            _isDailyView = IsDailyView;
          }
 
-        public CtrlTasksList(AppUser usr, DateTime forDate, bool showStatus, bool showPriority)
+        public CtrlTasksList(AppUser usr, DateTime forDate, bool showStatus, bool showPriority, bool IsDailyView)
         {
             InitializeComponent();
             CurrentUser = usr;
             CurrentDate = forDate;
             _showStatus = showStatus;
             _showPriority = showPriority;
+            _isDailyView = IsDailyView;
             LoadTasks();
         }
 
@@ -62,6 +66,18 @@ namespace MyPlanner
             set
             {
                 _showPriority = value;
+            }
+        }
+
+        public bool IsDailyView
+        {
+            get
+            {
+                return _isDailyView;
+            }
+            set
+            {
+                _isDailyView = value;
             }
         }
 
@@ -97,7 +113,7 @@ namespace MyPlanner
             this.lblDay.Text = Convert.ToDateTime(this.lblCurrentDate.Text).ToString("dddd");
             if (CurrentUser != null)
             {
-                this.dgTasks.DataSource = BLLTask.GetTasks(CurrentUser.UserID, null, Convert.ToDateTime(this.lblCurrentDate.Text), false);
+                this.dgTasks.DataSource = BLLTask.GetTasks(CurrentUser.UserID, null, Convert.ToDateTime(this.lblCurrentDate.Text),IsDailyView, false);
             }
         }
 
@@ -323,6 +339,45 @@ namespace MyPlanner
         {
             ShowPriority = !ShowPriority;
             LoadTasks();
+        }
+
+        private void dgTasks_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (this.dgTasks.Rows[e.RowIndex].Cells[1] != null)
+            {
+                Font tn = e.CellStyle.Font;
+                if (tn == null)
+                {
+                    tn = this.dgTasks.Font;
+                }
+                if (tn == null)
+                {
+                    tn = new Font("Arial", 12);
+                }
+                List<Task> tasks = (List<Task>)this.dgTasks.DataSource;
+                if (tasks[e.RowIndex].TaskDate < CurrentDate)
+                {
+                    e.CellStyle.ForeColor = Color.Red;
+                }
+                else
+                {
+                    e.CellStyle.ForeColor = Color.Blue;
+                }
+                switch (tasks[e.RowIndex].Status)
+                {
+                    case TaskStatuses.Completed:
+                    case TaskStatuses.Forwarded:
+                        {
+                            tn = new Font(tn.FontFamily, tn.SizeInPoints, FontStyle.Strikeout);
+                            break;
+                        }
+                    default:
+                        {
+                            break;
+                        }
+                }
+                e.CellStyle.Font = tn;
+            }
         }
 
     }

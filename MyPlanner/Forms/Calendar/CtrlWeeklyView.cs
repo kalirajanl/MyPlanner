@@ -68,14 +68,13 @@ namespace MyPlanner
             if (_workweekonly)
             {
                 ctrlWidth = _basectrlWidth  + Convert.ToInt32(Math.Ceiling((double)(_basectrlWidth * 2) / 5));
-
             }
 
             for (int i = 0; i < 7; i++)
             {
                 if ((i < 5) || (!_workweekonly))
                 {
-                    CtrlTasksList task = new CtrlTasksList(CurrentUser, CurrentDate.AddDays(i), false, false);
+                    CtrlTasksList task = new CtrlTasksList(CurrentUser, CurrentDate.AddDays(i), false, false, false);
                     task.LoadTasks();
                     task.Top = 3;
                     task.Left = (i * (ctrlWidth+3)) + ((i) * 3) + 3;

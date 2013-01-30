@@ -98,6 +98,23 @@ namespace MyPlanner.DAL
             return returnValue;
         }
 
+        public static bool SetGoalDueDate(int goalID)
+        {
+            bool returnValue = false;
+
+            DateTime goalDueDate = DALGoalStep.GetGoalDueDate(goalID);
+
+            IBaseQueryData queryData = new UpdateQueryData();
+            queryData.TableName = "PLN_Goals";
+
+            queryData.Fields.Add(new FieldData { FieldName = "DueOn", FieldType = SqlDbType.Date, FieldValue = goalDueDate.ToString(Constants.DATE_FORMAT_SQL) });
+            queryData.KeyFields.Add(new FieldData { FieldName = "GoalID", FieldType = SqlDbType.Int, FieldValue = goalID.ToString() });
+
+            returnValue = SQLWrapper.ExecuteQuery(queryData);
+
+            return returnValue;
+        }
+
         public static bool UpdateGoal(Goal goal)
         {
             bool returnValue = false;
@@ -195,28 +212,29 @@ namespace MyPlanner.DAL
             goal.IsCompleted = Convert.ToBoolean(dtGoals.Rows[RowNo]["IsCompleted"]);
             goal.Sequence = Convert.ToInt32(dtGoals.Rows[RowNo]["Sequence"]);
             goal.ForUser = DALAppUser.GetUserByID(Convert.ToInt32(dtGoals.Rows[RowNo]["UserID"]));
+            goal.DueOn = Convert.ToDateTime(dtGoals.Rows[RowNo]["DueOn"]);
 
             goal.Categories = loadGoalCategories(goal.GoalID);
 
             goal.Steps = DALGoalStep.GetGoalStepsByGoalID(goal.GoalID);
 
-            for (int k = 0; k <= goal.Steps.Count - 1; k++)
-            {
-                if (goal.Steps[k].taskInfo != null)
-                {
-                    if (goal.DueOn == null)
-                    {
-                        goal.DueOn = goal.Steps[k].taskInfo.TaskDate;
-                    }
-                    else
-                    {
-                        if (goal.Steps[k].taskInfo.TaskDate > goal.DueOn)
-                        {
-                            goal.DueOn = goal.Steps[k].taskInfo.TaskDate;
-                        }
-                    }
-                }
-            }
+            //for (int k = 0; k <= goal.Steps.Count - 1; k++)
+            //{
+            //    if (goal.Steps[k].taskInfo != null)
+            //    {
+            //        if (goal.DueOn == null)
+            //        {
+            //            goal.DueOn = goal.Steps[k].taskInfo.TaskDate;
+            //        }
+            //        else
+            //        {
+            //            if (goal.Steps[k].taskInfo.TaskDate > goal.DueOn)
+            //            {
+            //                goal.DueOn = goal.Steps[k].taskInfo.TaskDate;
+            //            }
+            //        }
+            //    }
+            //}
 
             return goal;
         }

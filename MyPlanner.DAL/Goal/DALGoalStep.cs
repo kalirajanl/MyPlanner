@@ -36,7 +36,7 @@ namespace MyPlanner.DAL
             return goalStep;
         }
 
-        public static bool AddGoalStep(int GoalID, GoalStep goalStep)
+        public static bool AddGoalStep(int goalID, GoalStep goalStep)
         {
             bool returnValue = false;
 
@@ -75,17 +75,35 @@ namespace MyPlanner.DAL
             queryData = new InsertQueryData();
 
             queryData.TableName = "PLN_GoalSteps";
-            queryData.Fields.Add(new FieldData { FieldName = "GoalID", FieldType = SqlDbType.Int, FieldValue = GoalID.ToString() });
+            queryData.Fields.Add(new FieldData { FieldName = "GoalID", FieldType = SqlDbType.Int, FieldValue = goalID.ToString() });
             queryData.Fields.Add(new FieldData { FieldName = "TaskID", FieldType = SqlDbType.Decimal, FieldValue = taskID.ToString() });
-            queryData.Fields.Add(new FieldData { FieldName = "Sequence", FieldType = SqlDbType.Int, FieldValue = getNextSequence(GoalID).ToString() });
+            queryData.Fields.Add(new FieldData { FieldName = "Sequence", FieldType = SqlDbType.Int, FieldValue = getNextSequence(goalID).ToString() });
             queryDatum.Add(queryData);
 
             SQLWrapper.ExecuteQuery(queryDatum);
 
+            DALGoal.SetGoalDueDate(goalID);
+
             return returnValue;
         }
 
-        public static bool UpdateGoalStep(int GoalID, GoalStep goalStep)
+        public static DateTime GetGoalDueDate(int goalID)
+        {
+            DateTime returnValue = DateTime.Today.AddYears(1);
+
+            List<GoalStep> goalSteps = GetGoalStepsByGoalID(goalID);
+
+            for (int i = 0; i <= goalSteps.Count - 1; i++)
+            {
+                if (goalSteps[i].taskInfo.TaskDate > returnValue)
+                {
+                    returnValue = goalSteps[i].taskInfo.TaskDate;
+                }
+            }
+            return returnValue;
+        }
+
+        public static bool UpdateGoalStep(int goalID, GoalStep goalStep)
         {
             bool returnValue = false;
 
@@ -129,7 +147,7 @@ namespace MyPlanner.DAL
             queryData = new UpdateQueryData();
 
             queryData.TableName = "PLN_GoalSteps";
-            queryData.Fields.Add(new FieldData { FieldName = "GoalID", FieldType = SqlDbType.Int, FieldValue = GoalID.ToString() });
+            queryData.Fields.Add(new FieldData { FieldName = "GoalID", FieldType = SqlDbType.Int, FieldValue = goalID.ToString() });
             queryData.Fields.Add(new FieldData { FieldName = "TaskID", FieldType = SqlDbType.Decimal, FieldValue = goalStep.taskInfo.TaskID.ToString() });
             queryData.Fields.Add(new FieldData { FieldName = "Sequence", FieldType = SqlDbType.Int, FieldValue = goalStep.Sequence.ToString() });
 
@@ -137,6 +155,8 @@ namespace MyPlanner.DAL
             queryDatum.Add(queryData);
 
             SQLWrapper.ExecuteQuery(queryDatum);
+
+            DALGoal.SetGoalDueDate(goalID);
 
             return returnValue;
         }
@@ -167,10 +187,10 @@ namespace MyPlanner.DAL
 
         #region Private Methods
 
-        private static List<GoalStep> loadGoalSteps(int GoalID)
+        private static List<GoalStep> loadGoalSteps(int goalID)
         {
             List<GoalStep> GoalSteps = new List<GoalStep>();
-            DataTable dtGoalSteps = SQLWrapper.GetDataTable(new SelectQueryData { TableName = "PLN_GoalSteps", FilterCondition = "GoalID = " + GoalID.ToString(), OrderBy = "Sequence" });
+            DataTable dtGoalSteps = SQLWrapper.GetDataTable(new SelectQueryData { TableName = "PLN_GoalSteps", FilterCondition = "GoalID = " + goalID.ToString(), OrderBy = "Sequence" });
             for (int i = 0; i <= dtGoalSteps.Rows.Count - 1; i++)
             {
                 GoalSteps.Add(loadGoalStep(dtGoalSteps, i));
@@ -187,10 +207,10 @@ namespace MyPlanner.DAL
             return goalStep;
         }
 
-        private static int getNextSequence(int GoalID)
+        private static int getNextSequence(int goalID)
         {
             int nextID = 1;
-            DataTable dtGoalSteps = SQLWrapper.GetDataTable(new SelectQueryData { TableName = "PLN_GoalSteps", FieldNames="Max(Sequence)", FilterCondition = "GoalID = " + GoalID.ToString() });
+            DataTable dtGoalSteps = SQLWrapper.GetDataTable(new SelectQueryData { TableName = "PLN_GoalSteps", FieldNames = "Max(Sequence)", FilterCondition = "GoalID = " + goalID.ToString() });
             if (dtGoalSteps.Rows.Count > 0)
             {
                 if (dtGoalSteps.Rows[0][0] != DBNull.Value)

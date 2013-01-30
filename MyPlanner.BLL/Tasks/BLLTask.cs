@@ -9,9 +9,9 @@ namespace MyPlanner.BLL
 {
     public class BLLTask
     {
-        public static List<Task> GetTasks(int ForUserID, List<Category> ForCategories, DateTime forDate, bool addBlank =true)
+        public static List<Task> GetTasks(int ForUserID, List<Category> ForCategories, DateTime forDate, bool addAsOfDateOverDueTasks, bool addBlank)
         {
-            return MyPlanner.DAL.DALTask.GetTasks(ForUserID, ForCategories, forDate,addBlank);
+            return MyPlanner.DAL.DALTask.GetTasks(ForUserID, ForCategories, forDate, addAsOfDateOverDueTasks, addBlank);
         }
 
         public static Task GetTaskByID(long TaskID)

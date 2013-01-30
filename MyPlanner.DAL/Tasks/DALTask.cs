@@ -9,11 +9,21 @@ namespace MyPlanner.DAL
 {
     public class DALTask
     {
-        public static List<Task> GetTasks(int ForUserID, List<Category> ForCategories, DateTime forDate, bool addBlank)
+        public static List<Task> GetTasks(int ForUserID, List<Category> ForCategories, DateTime forDate, bool addAsOfDateOverDueTasks, bool addBlank)
         {
             List<Task> Tasks = new List<Task>();
 
-            DataTable dtTasks = SQLWrapper.GetDataTable(new SelectQueryData { TableName = "TSK_Tasks", FilterCondition = "UserID = " + ForUserID + " AND TaskDate = '" + forDate.ToString(Constants.DATE_FORMAT_SQL) + "' And IsGoalStep = 0", OrderBy = "TaskPriorityID" });
+            DataTable dtTasks = null;
+
+            if (addAsOfDateOverDueTasks)
+            {
+                dtTasks = SQLWrapper.GetDataTable(new SelectQueryData { TableName = "TSK_Tasks", FilterCondition = "IsGoalStep = 0 AND UserID = " + ForUserID + " AND ((TaskDate = '" + forDate.ToString(Constants.DATE_FORMAT_SQL) + "') OR (TaskDate <= '" + forDate.ToString(Constants.DATE_FORMAT_SQL) + "') AND TaskStatusID in (SELECT TaskStatusID FROM TSK_TaskStatuses WHERE IsCompletedStatus != 1))", OrderBy = "TaskDate,TaskPriorityID" });
+            }
+            else
+            {
+                dtTasks = SQLWrapper.GetDataTable(new SelectQueryData { TableName = "TSK_Tasks", FilterCondition = "IsGoalStep = 0 AND UserID = " + ForUserID + " AND TaskDate = '" + forDate.ToString(Constants.DATE_FORMAT_SQL) + "'", OrderBy = "TaskPriorityID" });
+            }
+
 
             for (int i = 0; i <= dtTasks.Rows.Count - 1; i++)
             {

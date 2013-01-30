@@ -166,6 +166,7 @@ namespace MyPlanner.Models
     {
         UnKnown = 0,
         MSSQLServer = 1,
+        MSSQLServerCE = 2,
         MSAccess
     }
 

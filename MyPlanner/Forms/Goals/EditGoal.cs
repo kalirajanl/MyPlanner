@@ -160,6 +160,7 @@ namespace MyPlanner
                     goal.GoalReason = this.txtReason.Text;
                     goal.GoalNotes = this.txtNotes.Text;
                     goal.ForUser = this.CurrentUser;
+                    goal.DueOn = DateTime.Today.AddYears(1);
                     goal.Categories.Clear();
                     foreach (object itemChecked in chklstCategory.CheckedItems)
                     {

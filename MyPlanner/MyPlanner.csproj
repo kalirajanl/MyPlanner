@@ -341,9 +341,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\MyPlanner.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="App_Data\MyPlanner.sdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

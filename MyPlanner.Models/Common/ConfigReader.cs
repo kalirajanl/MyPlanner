@@ -29,6 +29,11 @@ namespace MyPlanner.Models
                             dsm = DataSourceMode.MSAccess;
                             break;
                         }
+                    case "SQLSERVERCE":
+                        {
+                            dsm = DataSourceMode.MSSQLServerCE;
+                            break;
+                        }
                     default:
                         {
                             dsm = DataSourceMode.UnKnown;
@@ -76,6 +81,16 @@ namespace MyPlanner.Models
                     case DataSourceMode.MSAccess:
                         {
                             returnValue = "MyPlannerConnectionStringACCDB";
+                            break;
+                        }
+                    case DataSourceMode.MSSQLServerCE:
+                        {
+                            returnValue = "MyPlannerConnectionStringSQLCE";
+                            break;
+                        }
+                    default:
+                        {
+                            throw new NotImplementedException();
                             break;
                         }
                 }

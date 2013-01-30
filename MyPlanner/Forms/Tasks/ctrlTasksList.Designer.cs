@@ -77,6 +77,7 @@
             this.dgTasks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgTasks.Size = new System.Drawing.Size(393, 427);
             this.dgTasks.TabIndex = 0;
+            this.dgTasks.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgTasks_CellFormatting);
             this.dgTasks.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgTasks_RowLeave);
             // 
             // TaskID

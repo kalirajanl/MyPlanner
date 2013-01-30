@@ -32,7 +32,6 @@ namespace MyPlanner
             TreeNode tvnRoot = new TreeNode("My Goals");
             tvnRoot.Tag = "R";
             tvnRoot.ContextMenuStrip = this.cmRoot;
-
             if (CurrentUser != null)
             {
                 List<Goal> goals = BLLGoal.GetGoalsForUser(CurrentUser.UserID, null);
@@ -40,15 +39,32 @@ namespace MyPlanner
                 {
                     TreeNode tvnGoal = new TreeNode(goals[i].GoalSubject);
                     tvnGoal.Tag = "G" + goals[i].GoalID.ToString();
+                    if (goals[i].DueOn < DateTime.Today)
+                    {
+                        tvnGoal.ForeColor = Color.Red;
+                    }
+                    else
+                    {
+                        tvnGoal.ForeColor = Color.Blue;
+                    }
                     for (int j = 0; j <= goals[i].Steps.Count - 1; j++)
                     {
                         TreeNode tvnStep = new TreeNode(goals[i].Steps[j].taskInfo.TaskName);
                         tvnStep.Tag = "S" + goals[i].Steps[j].GoalStepID.ToString();
                         tvnStep.ContextMenuStrip = this.cmGoalStep;
+                        if (goals[i].Steps[j].taskInfo.TaskDate < DateTime.Today)
+                        {
+                            tvnStep.ForeColor = Color.Red;
+                        }
+                        else
+                        {
+                            tvnStep.ForeColor = Color.Blue;
+                        }
                         if (goals[i].Steps[j].taskInfo.Status == TaskStatuses.Completed)
                         {
+                            tvnStep.ForeColor = Color.Black;
                             Font tn = tvnStep.NodeFont;
-                            if (tn == null) 
+                            if (tn == null)
                             {
                                 tn = this.tvGoalsAndSteps.Font;
                             }
@@ -64,6 +80,7 @@ namespace MyPlanner
                     tvnGoal.ContextMenuStrip = this.cmGoal;
                     if (goals[i].IsCompleted)
                     {
+                        tvnGoal.ForeColor = Color.Black;
                         Font tn = tvnGoal.NodeFont;
                         if (tn == null)
                         {
@@ -217,6 +234,6 @@ namespace MyPlanner
         {
             markNodeContentAsCompleted();
         }
-      
+
     }
 }
