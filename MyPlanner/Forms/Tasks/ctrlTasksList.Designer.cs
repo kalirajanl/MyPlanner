@@ -50,6 +50,8 @@
             this.showPriorityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblCurrentDate = new System.Windows.Forms.Label();
             this.lblDay = new System.Windows.Forms.Label();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.showOverdueTasksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgTasks)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -175,55 +177,57 @@
             this.deleteTaskToolStripMenuItem,
             this.toolStripSeparator1,
             this.showStatusToolStripMenuItem,
-            this.showPriorityToolStripMenuItem});
+            this.showPriorityToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.showOverdueTasksToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(145, 142);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(184, 192);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // addTaskToolStripMenuItem
             // 
             this.addTaskToolStripMenuItem.Name = "addTaskToolStripMenuItem";
-            this.addTaskToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.addTaskToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.addTaskToolStripMenuItem.Text = "Add Task";
             this.addTaskToolStripMenuItem.Click += new System.EventHandler(this.addTaskToolStripMenuItem_Click);
             // 
             // editTaskToolStripMenuItem
             // 
             this.editTaskToolStripMenuItem.Name = "editTaskToolStripMenuItem";
-            this.editTaskToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.editTaskToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.editTaskToolStripMenuItem.Text = "Edit Task";
             this.editTaskToolStripMenuItem.Click += new System.EventHandler(this.editTaskToolStripMenuItem_Click);
             // 
             // forwardTaskToolStripMenuItem
             // 
             this.forwardTaskToolStripMenuItem.Name = "forwardTaskToolStripMenuItem";
-            this.forwardTaskToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.forwardTaskToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.forwardTaskToolStripMenuItem.Text = "Forward Task";
             this.forwardTaskToolStripMenuItem.Click += new System.EventHandler(this.forwardTaskToolStripMenuItem_Click);
             // 
             // deleteTaskToolStripMenuItem
             // 
             this.deleteTaskToolStripMenuItem.Name = "deleteTaskToolStripMenuItem";
-            this.deleteTaskToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.deleteTaskToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.deleteTaskToolStripMenuItem.Text = "Delete Task";
             this.deleteTaskToolStripMenuItem.Click += new System.EventHandler(this.deleteTaskToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(141, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(180, 6);
             // 
             // showStatusToolStripMenuItem
             // 
             this.showStatusToolStripMenuItem.Name = "showStatusToolStripMenuItem";
-            this.showStatusToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.showStatusToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.showStatusToolStripMenuItem.Text = "Show Status";
             this.showStatusToolStripMenuItem.Click += new System.EventHandler(this.showStatusToolStripMenuItem_Click);
             // 
             // showPriorityToolStripMenuItem
             // 
             this.showPriorityToolStripMenuItem.Name = "showPriorityToolStripMenuItem";
-            this.showPriorityToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.showPriorityToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.showPriorityToolStripMenuItem.Text = "Show Priority";
             this.showPriorityToolStripMenuItem.Click += new System.EventHandler(this.showPriorityToolStripMenuItem_Click);
             // 
@@ -246,6 +250,18 @@
             this.lblDay.Size = new System.Drawing.Size(71, 20);
             this.lblDay.TabIndex = 2;
             this.lblDay.Text = "Monday";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 6);
+            // 
+            // showOverdueTasksToolStripMenuItem
+            // 
+            this.showOverdueTasksToolStripMenuItem.Name = "showOverdueTasksToolStripMenuItem";
+            this.showOverdueTasksToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.showOverdueTasksToolStripMenuItem.Text = "Show Overdue Tasks";
+            this.showOverdueTasksToolStripMenuItem.Click += new System.EventHandler(this.showOverdueTasksToolStripMenuItem_Click);
             // 
             // CtrlTasksList
             // 
@@ -287,5 +303,7 @@
         private System.Windows.Forms.ToolStripMenuItem showStatusToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showPriorityToolStripMenuItem;
         private System.Windows.Forms.Label lblDay;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem showOverdueTasksToolStripMenuItem;
     }
 }

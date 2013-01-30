@@ -322,6 +322,14 @@ namespace MyPlanner
             {
                 this.showPriorityToolStripMenuItem.Text = "Show Priority";
             }
+            if (!IsDailyView)
+            {
+                this.showOverdueTasksToolStripMenuItem.Text = "Show Overdue Tasks";
+            }
+            else
+            {
+                this.showOverdueTasksToolStripMenuItem.Text = "Hide Overdue Tasks";
+            }
         }
 
         private void forwardTaskToolStripMenuItem_Click(object sender, EventArgs e)
@@ -378,6 +386,12 @@ namespace MyPlanner
                 }
                 e.CellStyle.Font = tn;
             }
+        }
+
+        private void showOverdueTasksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IsDailyView = !IsDailyView;
+            LoadTasks();
         }
 
     }
