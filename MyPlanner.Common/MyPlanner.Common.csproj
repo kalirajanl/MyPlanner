@@ -5,15 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9D00AB1B-50DE-419A-A2D5-CD29E67B7466}</ProjectGuid>
+    <ProjectGuid>{050D2CA9-1136-4C70-A852-866CA43F1F32}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MyPlanner.BLL</RootNamespace>
-    <AssemblyName>MyPlanner.BLL</AssemblyName>
+    <RootNamespace>MyPlanner.Common</RootNamespace>
+    <AssemblyName>MyPlanner.Common</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,37 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\BLLCategory.cs" />
-    <Compile Include="Common\BLLDailyNotes.cs" />
-    <Compile Include="Goal\BLLGoal.cs" />
-    <Compile Include="Goal\BLLGoalStep.cs" />
-    <Compile Include="Mission\BLLMission.cs" />
-    <Compile Include="Mission\BLLValue.cs" />
+    <Compile Include="ConfigReader.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\BLLAppUser.cs" />
-    <Compile Include="Security\Tabs.cs" />
-    <Compile Include="Tasks\BLLTask.cs" />
-    <Compile Include="Tasks\BLLTaskPriority.cs" />
-    <Compile Include="Tasks\BLLTaskStatus.cs" />
-    <Compile Include="WeeklyPlanning\BLLBigRock.cs" />
-    <Compile Include="WeeklyPlanning\BLLCompassItem.cs" />
-    <Compile Include="WeeklyPlanning\BLLCompassRole.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MyPlanner.Common\MyPlanner.Common.csproj">
-      <Project>{050D2CA9-1136-4C70-A852-866CA43F1F32}</Project>
-      <Name>MyPlanner.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MyPlanner.DAL\MyPlanner.DAL.csproj">
-      <Project>{5B2CACD3-545F-4698-AA33-DDCBE24A9CA2}</Project>
-      <Name>MyPlanner.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MyPlanner.Models\MyPlanner.Models.csproj">
-      <Project>{B2D819DD-5243-4635-8E8E-0B5B30C41EE8}</Project>
-      <Name>MyPlanner.Models</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

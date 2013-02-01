@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using MyPlanner.Models;
 using MyPlanner.BLL;
+using MyPlanner.Logger;
+using MyPlanner.Common;
 
 namespace MyPlanner
 {
@@ -43,6 +45,7 @@ namespace MyPlanner
 
         private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
         {
+            CustomLogger.WriteUserActivity(CurrentUser, "User logged off successfully.");
             this.Close();
             Application.Exit();
         }
@@ -220,8 +223,6 @@ namespace MyPlanner
         private void AppMDI_Load(object sender, EventArgs e)
         {
             showDailyView();
-            //showWeeklyPlanning();
-            //showWeeklyView(DateTime.Today, false);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -232,6 +233,11 @@ namespace MyPlanner
         private void weeklyplanning_Click(object sender, EventArgs e)
         {
             showWeeklyPlanning();
+        }
+
+        private void AppMDI_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            CustomLogger.WriteGeneralActivity(ConfigReader.APPLICATION_TITLE + " Application stopped successfully.");
         }
 
       

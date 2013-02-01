@@ -45,11 +45,8 @@
   <ItemGroup>
     <Compile Include="Common\AppUser.cs" />
     <Compile Include="Common\Category.cs" />
-    <Compile Include="Common\ConfigReader.cs" />
-    <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\DailyNote.cs" />
     <Compile Include="Common\DisplayName.cs" />
-    <Compile Include="Common\Enums.cs" />
     <Compile Include="Common\Event.cs" />
     <Compile Include="Common\Schedule.cs" />
     <Compile Include="Contacts\AddressInfo.cs" />
@@ -70,7 +67,12 @@
     <Compile Include="WeeklyPlanning\CompassItem.cs" />
     <Compile Include="WeeklyPlanning\CompassRole.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MyPlanner.Common\MyPlanner.Common.csproj">
+      <Project>{050D2CA9-1136-4C70-A852-866CA43F1F32}</Project>
+      <Name>MyPlanner.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

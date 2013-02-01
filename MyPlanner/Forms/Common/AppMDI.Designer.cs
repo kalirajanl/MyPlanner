@@ -347,7 +347,7 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(67, 22);
             // 
             // windowsMenu
             // 
@@ -443,6 +443,7 @@
             this.Name = "AppMDI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AppMDI";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AppMDI_FormClosed);
             this.Load += new System.EventHandler(this.AppMDI_Load);
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();

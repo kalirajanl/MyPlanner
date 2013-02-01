@@ -6,8 +6,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using MyPlanner.Models;
 using MyPlanner.BLL;
+using MyPlanner.Common;
+using MyPlanner.Models;
 
 namespace MyPlanner
 {
@@ -16,12 +17,12 @@ namespace MyPlanner
 
         private bool _showStatus = true;
         private bool _showPriority = true;
-        private bool _isDailyView = false;
+        private bool _showOverDueTasks = false;
 
         public CtrlTasksList()
         {
             InitializeComponent();
-            _isDailyView = true;
+            _showOverDueTasks = false;
         }
 
         public CtrlTasksList(AppUser usr, DateTime forDate, bool IsDailyView)
@@ -31,7 +32,7 @@ namespace MyPlanner
             CurrentDate = forDate;
             _showStatus = true;
             _showPriority = true;
-            _isDailyView = IsDailyView;
+            _showOverDueTasks = IsDailyView;
          }
 
         public CtrlTasksList(AppUser usr, DateTime forDate, bool showStatus, bool showPriority, bool IsDailyView)
@@ -41,7 +42,7 @@ namespace MyPlanner
             CurrentDate = forDate;
             _showStatus = showStatus;
             _showPriority = showPriority;
-            _isDailyView = IsDailyView;
+            _showOverDueTasks = IsDailyView;
             LoadTasks();
         }
 
@@ -69,15 +70,15 @@ namespace MyPlanner
             }
         }
 
-        public bool IsDailyView
+        public bool ShowOverDueTasks
         {
             get
             {
-                return _isDailyView;
+                return _showOverDueTasks;
             }
             set
             {
-                _isDailyView = value;
+                _showOverDueTasks = value;
             }
         }
 
@@ -113,7 +114,7 @@ namespace MyPlanner
             this.lblDay.Text = Convert.ToDateTime(this.lblCurrentDate.Text).ToString("dddd");
             if (CurrentUser != null)
             {
-                this.dgTasks.DataSource = BLLTask.GetTasks(CurrentUser.UserID, null, Convert.ToDateTime(this.lblCurrentDate.Text),IsDailyView, false);
+                this.dgTasks.DataSource = BLLTask.GetTasks(CurrentUser.UserID, null, Convert.ToDateTime(this.lblCurrentDate.Text), _showOverDueTasks, false);
             }
         }
 
@@ -322,7 +323,7 @@ namespace MyPlanner
             {
                 this.showPriorityToolStripMenuItem.Text = "Show Priority";
             }
-            if (!IsDailyView)
+            if (!ShowOverDueTasks)
             {
                 this.showOverdueTasksToolStripMenuItem.Text = "Show Overdue Tasks";
             }
@@ -390,7 +391,7 @@ namespace MyPlanner
 
         private void showOverdueTasksToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            IsDailyView = !IsDailyView;
+            ShowOverDueTasks = !ShowOverDueTasks;
             LoadTasks();
         }
 

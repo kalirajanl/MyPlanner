@@ -34,6 +34,14 @@ namespace MyPlanner
             this.ctrlTasksList1.Height = this.Height - 70;
             this.ctrlTasksList1.Width = 350;
             this.ctrlTasksList1.CurrentDate = this.dtpCurrentDate.Value;
+            if (this.dtpCurrentDate.Value > DateTime.Today)
+            {
+                this.ctrlTasksList1.ShowOverDueTasks = false;
+            }
+            else
+            {
+                this.ctrlTasksList1.ShowOverDueTasks = true;
+            }
             this.ctrlTasksList1.LoadTasks();
 
             this.ctrlDailyNotes1.CurrentUser = CurrentUser;

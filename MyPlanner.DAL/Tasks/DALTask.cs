@@ -1,9 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
+using System.Collections.Generic;
 using MyPlanner.Models;
-using System.Data;
+using MyPlanner.Common;
 
 namespace MyPlanner.DAL
 {
@@ -203,20 +204,20 @@ namespace MyPlanner.DAL
             task.StatusID = Convert.ToInt32(dtTasks.Rows[RowNo]["TaskStatusID"]);
             task.StatusText = task.Status.ToString();
 
-            task.Categories = loadTaskCategories(task.TaskID);
+            task.Categories = DALCategory.GetCategoriesByTaskID(task.TaskID);
             return task;
         }
 
-        private static List<Category> loadTaskCategories(long taskID)
-        {
-            List<Category> taskCategories = new List<Category>();
-            DataTable dtTaskCategories = SQLWrapper.GetDataTable(new SelectQueryData { TableName = "TSK_TaskCategories", FilterCondition = "TaskID = " + taskID.ToString(), OrderBy = "Sequence" });
-            for (int i = 0; i <= dtTaskCategories.Rows.Count - 1; i++)
-            {
-                taskCategories.Add(DALCategory.GetCategoryByID(Convert.ToInt32(dtTaskCategories.Rows[i]["CategoryID"])));
-            }
-            return taskCategories;
-        }
+        //private static List<Category> loadTaskCategories(long taskID)
+        //{
+        //    List<Category> taskCategories = new List<Category>();
+        //    DataTable dtTaskCategories = SQLWrapper.GetDataTable(new SelectQueryData { TableName = "TSK_TaskCategories", FilterCondition = "TaskID = " + taskID.ToString(), OrderBy = "Sequence" });
+        //    for (int i = 0; i <= dtTaskCategories.Rows.Count - 1; i++)
+        //    {
+        //        taskCategories.Add(DALCategory.GetCategoryByID(Convert.ToInt32(dtTaskCategories.Rows[i]["CategoryID"])));
+        //    }
+        //    return taskCategories;
+        //}
 
         public static long getNextTaskID()
         {

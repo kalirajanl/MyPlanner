@@ -5,6 +5,8 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using MyPlanner.Models;
 using MyPlanner.BLL;
+using MyPlanner.Logger;
+using MyPlanner.Common;
 
 namespace MyPlanner
 {
@@ -16,20 +18,25 @@ namespace MyPlanner
         [STAThread]
         static void Main()
         {
+
+            CustomLogger.WriteGeneralActivity(ConfigReader.APPLICATION_TITLE + " Application started successfully");
             System.Diagnostics.Process[] obj = System.Diagnostics.Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName);
             if (obj.Length != 1)
             {
                 MessageBox.Show("Another instance is running", "MyPlanner", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                CustomLogger.WriteGeneralActivity("Application Stopped as there is a running instance.");
             }
             else
             {
 
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-               Application.Run(new AppLogin());
-               // AppUser usr = BLLAppUser.GetUserByID(1);
+                Application.Run(new AppLogin());
+                //AppUser usr = BLLAppUser.GetUserByID(1);
                 //AppMDI appMDI = new AppMDI(usr);
                 //Application.Run(appMDI);
+
+                Application.Run(new MyPlanner.Forms.frmtest());
             }
         }
 

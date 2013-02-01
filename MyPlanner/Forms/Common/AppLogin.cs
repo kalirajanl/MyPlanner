@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using MyPlanner.Models;
 using MyPlanner.BLL;
+using MyPlanner.Logger;
 
 namespace MyPlanner
 {
@@ -22,7 +23,8 @@ namespace MyPlanner
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            CustomLogger.WriteGeneralActivity("Application Stopped normally.");
+            Application.Exit();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -42,10 +44,12 @@ namespace MyPlanner
                 AppUser usr = BLLAppUser.ValidateUser(this.txtUserName.Text, this.txtPassword.Text);
                 if (usr == null)
                 {
+                    CustomLogger.WriteGeneralActivity("Application login failed with credentials [" + this.txtUserName.Text.Trim() + "," + this.txtPassword.Text.Trim() + "].");
                     ShowError("Invalid credentials", Form_Title);
                 }
                 else
                 {
+                    CustomLogger.WriteUserActivity(usr,"User logged in successfully.");
                     this.Hide();
                     AppMDI appMDI = new AppMDI(usr);
                     appMDI.Show();

@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
-using MyPlanner.Models;
+using System.Collections.Generic;
 
-namespace MyPlanner.Models
+namespace MyPlanner.Common
 {
     public class ConfigReader
     {
@@ -44,28 +43,6 @@ namespace MyPlanner.Models
             }
         }
 
-        //public static string ActiveConnectionString
-        //{
-        //    get
-        //    {
-        //        string returnValue = "";
-        //        switch (ActiveDataSourceMode)
-        //        {
-        //            case DataSourceMode.MSSQLServer:
-        //                {
-        //                    returnValue = ConfigurationManager.ConnectionStrings["MyPlannerConnectionStringSQL"].ConnectionString;
-        //                    break;
-        //                }
-        //            case DataSourceMode.MSAccess:
-        //                {
-        //                    returnValue =  ConfigurationManager.ConnectionStrings["MyPlannerConnectionStringACCDB"].ConnectionString;
-        //                    break;
-        //                }
-        //        }
-        //        return returnValue;
-        //    }
-        //}
-
         public static string ActiveConnectionStringKey
         {
             get
@@ -97,6 +74,14 @@ namespace MyPlanner.Models
                 return returnValue;
             }
         }
+
+         public static string APPLICATION_TITLE
+        {
+            get
+            {
+                return AppSettings("APPLICATION_TITLE");
+            }
+         }
 
         public static string AppSettings(string key)
         {

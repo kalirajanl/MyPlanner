@@ -35,7 +35,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>External\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+      <HintPath>..\MyPlanner.ExternalDLLS\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -64,20 +64,14 @@
     <Compile Include="WeeklyPlanning\DALBigRock.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MyPlanner.Common\MyPlanner.Common.csproj">
+      <Project>{050D2CA9-1136-4C70-A852-866CA43F1F32}</Project>
+      <Name>MyPlanner.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyPlanner.Models\MyPlanner.Models.csproj">
       <Project>{B2D819DD-5243-4635-8E8E-0B5B30C41EE8}</Project>
       <Name>MyPlanner.Models</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="External\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
-    <Content Include="External\Microsoft.Practices.EnterpriseLibrary.Common.xml" />
-    <Content Include="External\Microsoft.Practices.EnterpriseLibrary.Data.dll" />
-    <Content Include="External\Microsoft.Practices.EnterpriseLibrary.Data.SqlCe.dll" />
-    <Content Include="External\Microsoft.Practices.EnterpriseLibrary.Data.SqlCe.xml" />
-    <Content Include="External\Microsoft.Practices.EnterpriseLibrary.Data.xml" />
-    <Content Include="External\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll" />
-    <Content Include="External\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

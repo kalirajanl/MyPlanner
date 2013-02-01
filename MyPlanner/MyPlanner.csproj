@@ -15,7 +15,7 @@
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>D:\Rajan\PublishArea\MyPlanner\20130130\</PublishUrl>
+    <PublishUrl>D:\Rajan\PublishArea\MyPlanner\20130201\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -25,7 +25,6 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <AutorunEnabled>true</AutorunEnabled>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.8.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
@@ -112,6 +111,12 @@
     </Compile>
     <Compile Include="Forms\Calendar\frmWeeklyView.Designer.cs">
       <DependentUpon>frmWeeklyView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmtest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmtest.Designer.cs">
+      <DependentUpon>frmtest.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Notes\CtrlDailyNotes.cs">
       <SubType>UserControl</SubType>
@@ -230,6 +235,9 @@
     <EmbeddedResource Include="Forms\Calendar\frmWeeklyView.resx">
       <DependentUpon>frmWeeklyView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmtest.resx">
+      <DependentUpon>frmtest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Goals\EditGoal.resx">
       <DependentUpon>EditGoal.cs</DependentUpon>
     </EmbeddedResource>
@@ -307,9 +315,17 @@
       <Project>{9D00AB1B-50DE-419A-A2D5-CD29E67B7466}</Project>
       <Name>MyPlanner.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MyPlanner.Common\MyPlanner.Common.csproj">
+      <Project>{050D2CA9-1136-4C70-A852-866CA43F1F32}</Project>
+      <Name>MyPlanner.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyPlanner.DAL\MyPlanner.DAL.csproj">
       <Project>{5B2CACD3-545F-4698-AA33-DDCBE24A9CA2}</Project>
       <Name>MyPlanner.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyPlanner.Logger\MyPlanner.Logger.csproj">
+      <Project>{AC844945-EC37-4027-A794-8D953D572BE3}</Project>
+      <Name>MyPlanner.Logger</Name>
     </ProjectReference>
     <ProjectReference Include="..\MyPlanner.Models\MyPlanner.Models.csproj">
       <Project>{B2D819DD-5243-4635-8E8E-0B5B30C41EE8}</Project>

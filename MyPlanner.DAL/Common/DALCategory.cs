@@ -22,6 +22,19 @@ namespace MyPlanner.DAL
             return Categories;
         }
 
+        public static List<Category> GetCategoriesByTaskID(long TaskID)
+        {
+            List<Category> Categories = new List<Category>();
+
+            DataTable dtCategories = SQLWrapper.GetDataTable(new SelectQueryData { TableName = "CMN_Categories", FilterCondition = "CategoryID in (SELECT CategoryID FROM TSK_TaskCategories WHERE TaskID = " + TaskID.ToString() + ")", OrderBy = "Sequence" });
+            for (int i = 0; i <= dtCategories.Rows.Count - 1; i++)
+            {
+                Categories.Add(new Category { CategoryID = Convert.ToInt32(dtCategories.Rows[i]["CategoryID"]), CategoryName = dtCategories.Rows[i]["CategoryName"].ToString(), Sequence = Convert.ToInt32(dtCategories.Rows[i]["Sequence"]) });
+            }
+
+            return Categories;
+        }
+
         public static Category GetCategoryByID(int CategoryID)
         {
             Category category = null;
