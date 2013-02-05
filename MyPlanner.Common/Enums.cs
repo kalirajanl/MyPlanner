@@ -155,7 +155,8 @@ namespace MyPlanner.Common
         Forwarded = 3,
         Completed = 4,
         Delegated = 5,
-        Deleted = 6
+        Deleted = 6,
+        Cancelled = 7
     }
 
     #endregion

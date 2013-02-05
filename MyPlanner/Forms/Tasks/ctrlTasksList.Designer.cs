@@ -48,10 +48,11 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.showStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showPriorityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblCurrentDate = new System.Windows.Forms.Label();
-            this.lblDay = new System.Windows.Forms.Label();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.showOverdueTasksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblCurrentDate = new System.Windows.Forms.Label();
+            this.lblDay = new System.Windows.Forms.Label();
+            this.cancelledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgTasks)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -109,42 +110,43 @@
             this.mnuInProgress,
             this.mnuCompleted,
             this.mnuForwarded,
-            this.mnuDelegated});
+            this.mnuDelegated,
+            this.cancelledToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(134, 114);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(153, 158);
             // 
             // mnuNormal
             // 
             this.mnuNormal.Name = "mnuNormal";
-            this.mnuNormal.Size = new System.Drawing.Size(133, 22);
+            this.mnuNormal.Size = new System.Drawing.Size(152, 22);
             this.mnuNormal.Text = "Normal";
             this.mnuNormal.Click += new System.EventHandler(this.mnuNormal_Click);
             // 
             // mnuInProgress
             // 
             this.mnuInProgress.Name = "mnuInProgress";
-            this.mnuInProgress.Size = new System.Drawing.Size(133, 22);
+            this.mnuInProgress.Size = new System.Drawing.Size(152, 22);
             this.mnuInProgress.Text = "In Progress";
             this.mnuInProgress.Click += new System.EventHandler(this.mnuInProgress_Click);
             // 
             // mnuCompleted
             // 
             this.mnuCompleted.Name = "mnuCompleted";
-            this.mnuCompleted.Size = new System.Drawing.Size(133, 22);
+            this.mnuCompleted.Size = new System.Drawing.Size(152, 22);
             this.mnuCompleted.Text = "Completed";
             this.mnuCompleted.Click += new System.EventHandler(this.mnuCompleted_Click);
             // 
             // mnuForwarded
             // 
             this.mnuForwarded.Name = "mnuForwarded";
-            this.mnuForwarded.Size = new System.Drawing.Size(133, 22);
+            this.mnuForwarded.Size = new System.Drawing.Size(152, 22);
             this.mnuForwarded.Text = "Forward";
             this.mnuForwarded.Click += new System.EventHandler(this.mnuForwarded_Click);
             // 
             // mnuDelegated
             // 
             this.mnuDelegated.Name = "mnuDelegated";
-            this.mnuDelegated.Size = new System.Drawing.Size(133, 22);
+            this.mnuDelegated.Size = new System.Drawing.Size(152, 22);
             this.mnuDelegated.Text = "Delegate";
             this.mnuDelegated.Click += new System.EventHandler(this.mnuDelegated_Click);
             // 
@@ -181,7 +183,7 @@
             this.toolStripMenuItem1,
             this.showOverdueTasksToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(184, 192);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(184, 170);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // addTaskToolStripMenuItem
@@ -231,6 +233,18 @@
             this.showPriorityToolStripMenuItem.Text = "Show Priority";
             this.showPriorityToolStripMenuItem.Click += new System.EventHandler(this.showPriorityToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 6);
+            // 
+            // showOverdueTasksToolStripMenuItem
+            // 
+            this.showOverdueTasksToolStripMenuItem.Name = "showOverdueTasksToolStripMenuItem";
+            this.showOverdueTasksToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.showOverdueTasksToolStripMenuItem.Text = "Show Overdue Tasks";
+            this.showOverdueTasksToolStripMenuItem.Click += new System.EventHandler(this.showOverdueTasksToolStripMenuItem_Click);
+            // 
             // lblCurrentDate
             // 
             this.lblCurrentDate.AutoSize = true;
@@ -251,17 +265,12 @@
             this.lblDay.TabIndex = 2;
             this.lblDay.Text = "Monday";
             // 
-            // toolStripMenuItem1
+            // cancelledToolStripMenuItem
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 6);
-            // 
-            // showOverdueTasksToolStripMenuItem
-            // 
-            this.showOverdueTasksToolStripMenuItem.Name = "showOverdueTasksToolStripMenuItem";
-            this.showOverdueTasksToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.showOverdueTasksToolStripMenuItem.Text = "Show Overdue Tasks";
-            this.showOverdueTasksToolStripMenuItem.Click += new System.EventHandler(this.showOverdueTasksToolStripMenuItem_Click);
+            this.cancelledToolStripMenuItem.Name = "cancelledToolStripMenuItem";
+            this.cancelledToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cancelledToolStripMenuItem.Text = "Cancelled";
+            this.cancelledToolStripMenuItem.Click += new System.EventHandler(this.cancelledToolStripMenuItem_Click);
             // 
             // CtrlTasksList
             // 
@@ -305,5 +314,6 @@
         private System.Windows.Forms.Label lblDay;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem showOverdueTasksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cancelledToolStripMenuItem;
     }
 }

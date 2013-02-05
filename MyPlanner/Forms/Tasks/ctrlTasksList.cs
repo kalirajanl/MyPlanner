@@ -376,6 +376,8 @@ namespace MyPlanner
                 {
                     case TaskStatuses.Completed:
                     case TaskStatuses.Forwarded:
+                    case TaskStatuses.Deleted:
+                    case TaskStatuses.Cancelled:
                         {
                             tn = new Font(tn.FontFamily, tn.SizeInPoints, FontStyle.Strikeout);
                             break;
@@ -393,6 +395,11 @@ namespace MyPlanner
         {
             ShowOverDueTasks = !ShowOverDueTasks;
             LoadTasks();
+        }
+
+        private void cancelledToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            updateStatus(TaskStatuses.Cancelled);
         }
 
     }
