@@ -273,21 +273,6 @@ namespace MyPlanner
             updateStatus(TaskStatuses.Completed);
         }
 
-        private void mnuForwarded_Click(object sender, EventArgs e)
-        {
-            if (this.dgTasks.CurrentRow == null)
-            {
-                ShowError("Please select a row.", Form_Title);
-            }
-            else
-            {
-                frmEditTask childform = new frmEditTask(CurrentUser, PageMode.Forward, CurrentDate);
-                childform.ItemID = (long)Convert.ToDecimal(this.dgTasks.CurrentRow.Cells[0].Value);
-                childform.ShowDialog();
-                initPage();
-            }
-        }
-
         private void mnuDelegated_Click(object sender, EventArgs e)
         {
             updateStatus(TaskStatuses.Delegated);
@@ -331,11 +316,6 @@ namespace MyPlanner
             {
                 this.showOverdueTasksToolStripMenuItem.Text = "Hide Overdue Tasks";
             }
-        }
-
-        private void forwardTaskToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            mnuForwarded_Click(null, null);
         }
 
         private void showStatusToolStripMenuItem_Click(object sender, EventArgs e)
@@ -402,5 +382,82 @@ namespace MyPlanner
             updateStatus(TaskStatuses.Cancelled);
         }
 
+        private void completeForwardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.dgTasks.CurrentRow == null)
+            {
+                ShowError("Please select a row.", Form_Title);
+            }
+            else
+            {
+                showTaskForward(TaskStatuses.Completed);
+            }
+        }
+
+        private void cancelForwardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.dgTasks.CurrentRow == null)
+            {
+                ShowError("Please select a row.", Form_Title);
+            }
+            else
+            {
+                showTaskForward(TaskStatuses.Cancelled);
+            }
+        }
+
+       
+
+        private void deleteForwardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.dgTasks.CurrentRow == null)
+            {
+                ShowError("Please select a row.", Form_Title);
+            }
+            else
+            {
+                showTaskForward(TaskStatuses.Deleted);
+            }
+        }
+
+        private void forwardOnlyToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (this.dgTasks.CurrentRow == null)
+            {
+                ShowError("Please select a row.", Form_Title);
+            }
+            else
+            {
+                showTaskForward(TaskStatuses.Forwarded);
+            }
+        }
+
+        private void cancelForwardToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cancelForwardToolStripMenuItem_Click(null, null);
+        }
+
+        private void completeForwardToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            completeForwardToolStripMenuItem_Click(null, null);
+        }
+
+        private void deleteForwardToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            deleteForwardToolStripMenuItem_Click(null, null);
+        }
+
+        private void forwardOnlyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            forwardOnlyToolStripMenuItem1_Click(null, null);
+        }
+
+        private void showTaskForward(TaskStatuses currentTaskStatus)
+        {
+            frmEditTask childform = new frmEditTask(CurrentUser, PageMode.Forward, CurrentDate, currentTaskStatus);
+            childform.ItemID = (long)Convert.ToDecimal(this.dgTasks.CurrentRow.Cells[0].Value);
+            childform.ShowDialog();
+            initPage();
+        }
     }
 }

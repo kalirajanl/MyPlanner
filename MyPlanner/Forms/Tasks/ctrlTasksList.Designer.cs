@@ -37,13 +37,22 @@
             this.mnuInProgress = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCompleted = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuForwarded = new System.Windows.Forms.ToolStripMenuItem();
+            this.cancelForwardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.completeForwardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteForwardToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.forwardOnlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDelegated = new System.Windows.Forms.ToolStripMenuItem();
+            this.cancelledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TaskPriority = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TaskName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.addTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forwardTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cancelForwardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.completeForwardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteForwardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.forwardOnlyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.showStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,7 +61,6 @@
             this.showOverdueTasksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblCurrentDate = new System.Windows.Forms.Label();
             this.lblDay = new System.Windows.Forms.Label();
-            this.cancelledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgTasks)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -138,10 +146,42 @@
             // 
             // mnuForwarded
             // 
+            this.mnuForwarded.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cancelForwardToolStripMenuItem1,
+            this.completeForwardToolStripMenuItem1,
+            this.deleteForwardToolStripMenuItem1,
+            this.forwardOnlyToolStripMenuItem});
             this.mnuForwarded.Name = "mnuForwarded";
             this.mnuForwarded.Size = new System.Drawing.Size(152, 22);
             this.mnuForwarded.Text = "Forward";
-            this.mnuForwarded.Click += new System.EventHandler(this.mnuForwarded_Click);
+            // 
+            // cancelForwardToolStripMenuItem1
+            // 
+            this.cancelForwardToolStripMenuItem1.Name = "cancelForwardToolStripMenuItem1";
+            this.cancelForwardToolStripMenuItem1.Size = new System.Drawing.Size(185, 22);
+            this.cancelForwardToolStripMenuItem1.Text = "Cancel && Forward";
+            this.cancelForwardToolStripMenuItem1.Click += new System.EventHandler(this.cancelForwardToolStripMenuItem1_Click);
+            // 
+            // completeForwardToolStripMenuItem1
+            // 
+            this.completeForwardToolStripMenuItem1.Name = "completeForwardToolStripMenuItem1";
+            this.completeForwardToolStripMenuItem1.Size = new System.Drawing.Size(185, 22);
+            this.completeForwardToolStripMenuItem1.Text = "Complete && Forward";
+            this.completeForwardToolStripMenuItem1.Click += new System.EventHandler(this.completeForwardToolStripMenuItem1_Click);
+            // 
+            // deleteForwardToolStripMenuItem1
+            // 
+            this.deleteForwardToolStripMenuItem1.Name = "deleteForwardToolStripMenuItem1";
+            this.deleteForwardToolStripMenuItem1.Size = new System.Drawing.Size(185, 22);
+            this.deleteForwardToolStripMenuItem1.Text = "Delete && Forward";
+            this.deleteForwardToolStripMenuItem1.Click += new System.EventHandler(this.deleteForwardToolStripMenuItem1_Click);
+            // 
+            // forwardOnlyToolStripMenuItem
+            // 
+            this.forwardOnlyToolStripMenuItem.Name = "forwardOnlyToolStripMenuItem";
+            this.forwardOnlyToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.forwardOnlyToolStripMenuItem.Text = "Forward Only";
+            this.forwardOnlyToolStripMenuItem.Click += new System.EventHandler(this.forwardOnlyToolStripMenuItem_Click);
             // 
             // mnuDelegated
             // 
@@ -149,6 +189,13 @@
             this.mnuDelegated.Size = new System.Drawing.Size(152, 22);
             this.mnuDelegated.Text = "Delegate";
             this.mnuDelegated.Click += new System.EventHandler(this.mnuDelegated_Click);
+            // 
+            // cancelledToolStripMenuItem
+            // 
+            this.cancelledToolStripMenuItem.Name = "cancelledToolStripMenuItem";
+            this.cancelledToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cancelledToolStripMenuItem.Text = "Cancelled";
+            this.cancelledToolStripMenuItem.Click += new System.EventHandler(this.cancelledToolStripMenuItem_Click);
             // 
             // TaskPriority
             // 
@@ -202,10 +249,42 @@
             // 
             // forwardTaskToolStripMenuItem
             // 
+            this.forwardTaskToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cancelForwardToolStripMenuItem,
+            this.completeForwardToolStripMenuItem,
+            this.deleteForwardToolStripMenuItem,
+            this.forwardOnlyToolStripMenuItem1});
             this.forwardTaskToolStripMenuItem.Name = "forwardTaskToolStripMenuItem";
             this.forwardTaskToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.forwardTaskToolStripMenuItem.Text = "Forward Task";
-            this.forwardTaskToolStripMenuItem.Click += new System.EventHandler(this.forwardTaskToolStripMenuItem_Click);
+            // 
+            // cancelForwardToolStripMenuItem
+            // 
+            this.cancelForwardToolStripMenuItem.Name = "cancelForwardToolStripMenuItem";
+            this.cancelForwardToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.cancelForwardToolStripMenuItem.Text = "Cancel && Forward";
+            this.cancelForwardToolStripMenuItem.Click += new System.EventHandler(this.cancelForwardToolStripMenuItem_Click);
+            // 
+            // completeForwardToolStripMenuItem
+            // 
+            this.completeForwardToolStripMenuItem.Name = "completeForwardToolStripMenuItem";
+            this.completeForwardToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.completeForwardToolStripMenuItem.Text = "Complete && Forward";
+            this.completeForwardToolStripMenuItem.Click += new System.EventHandler(this.completeForwardToolStripMenuItem_Click);
+            // 
+            // deleteForwardToolStripMenuItem
+            // 
+            this.deleteForwardToolStripMenuItem.Name = "deleteForwardToolStripMenuItem";
+            this.deleteForwardToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.deleteForwardToolStripMenuItem.Text = "Delete && Forward";
+            this.deleteForwardToolStripMenuItem.Click += new System.EventHandler(this.deleteForwardToolStripMenuItem_Click);
+            // 
+            // forwardOnlyToolStripMenuItem1
+            // 
+            this.forwardOnlyToolStripMenuItem1.Name = "forwardOnlyToolStripMenuItem1";
+            this.forwardOnlyToolStripMenuItem1.Size = new System.Drawing.Size(185, 22);
+            this.forwardOnlyToolStripMenuItem1.Text = "Forward Only";
+            this.forwardOnlyToolStripMenuItem1.Click += new System.EventHandler(this.forwardOnlyToolStripMenuItem1_Click);
             // 
             // deleteTaskToolStripMenuItem
             // 
@@ -265,13 +344,6 @@
             this.lblDay.TabIndex = 2;
             this.lblDay.Text = "Monday";
             // 
-            // cancelledToolStripMenuItem
-            // 
-            this.cancelledToolStripMenuItem.Name = "cancelledToolStripMenuItem";
-            this.cancelledToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.cancelledToolStripMenuItem.Text = "Cancelled";
-            this.cancelledToolStripMenuItem.Click += new System.EventHandler(this.cancelledToolStripMenuItem_Click);
-            // 
             // CtrlTasksList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,5 +387,13 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem showOverdueTasksToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cancelledToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cancelForwardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem completeForwardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteForwardToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cancelForwardToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem completeForwardToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem deleteForwardToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem forwardOnlyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem forwardOnlyToolStripMenuItem1;
     }
 }

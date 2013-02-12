@@ -14,12 +14,23 @@ namespace MyPlanner
 {
     public partial class frmEditTask : PopupForm
     {
+        TaskStatuses forwardStatus = TaskStatuses.Forwarded;
+
         public frmEditTask(AppUser usr, PageMode pageMode, DateTime currentdate)
         {
             InitializeComponent();
             CurrentUser = usr;
             CurrentPageMode = pageMode;
             this.lblCurrentDate.Text = currentdate.ToString(Constants.DATE_FORMAT_STRING);
+        }
+
+        public frmEditTask(AppUser usr, PageMode pageMode, DateTime currentdate, TaskStatuses currentTaskStatus)
+        {
+            InitializeComponent();
+            CurrentUser = usr;
+            CurrentPageMode = pageMode;
+            this.lblCurrentDate.Text = currentdate.ToString(Constants.DATE_FORMAT_STRING);
+            forwardStatus = currentTaskStatus;
         }
 
         private void frmEditTask_Load(object sender, EventArgs e)
@@ -103,6 +114,18 @@ namespace MyPlanner
             }
         }
 
+        public TaskStatuses TaskStatus
+        {
+            get
+            {
+                return (TaskStatuses)this.cboStatus.SelectedValue;
+            }
+            set
+            {
+                loadStatus(value);
+            }
+        }
+
         private void loadData()
         {
             Task task = BLLTask.GetTaskByID((long)Convert.ToDecimal(this.lblItemID.Text));
@@ -113,8 +136,14 @@ namespace MyPlanner
                 this.txtTaskName.Text = task.TaskName;
 
                 loadPriority(task.Priority);
-                loadStatus(task.Status);
-
+                if (this.CurrentPageMode == PageMode.Forward)
+                {
+                    loadStatus(forwardStatus);
+                }
+                else
+                {
+                    loadStatus(task.Status);
+                }
                 for (int i = 0; i <= task.Categories.Count - 1; i++)
                 {
                     int idx = getIndexOfCategory(task.Categories[i]);
@@ -252,7 +281,7 @@ namespace MyPlanner
                             }
                         case PageMode.Forward:
                             {
-                                returnValue = BLLTask.ForwardTask(task.TaskID, this.dtpDueOn.Value);
+                                returnValue = BLLTask.ForwardTask(task.TaskID, this.dtpDueOn.Value, task.Status);
                                 break;
                             }
                     }
