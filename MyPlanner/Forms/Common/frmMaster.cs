@@ -16,7 +16,8 @@ namespace MyPlanner
     {
         Mission = 1,
         Value = 2, 
-        GoalsAndSteps = 3
+        GoalsAndSteps = 3,
+        WishList
     }
 
     public partial class frmMaster : BaseForm
@@ -43,6 +44,12 @@ namespace MyPlanner
                     {
                         this.Text = "Goals & Steps";
                         Form_Title = "Goals & Steps";
+                        break;
+                    }
+                case MasterPageMode.WishList:
+                    {
+                        this.Text = "WishList";
+                        Form_Title = "WishList";
                         break;
                     }
             }
@@ -82,13 +89,28 @@ namespace MyPlanner
                         CtrlGoalsAndSteps ctrlGoalsAndSteps = new CtrlGoalsAndSteps();
                         ctrlGoalsAndSteps.Form_Title = Form_Title;
                         ctrlGoalsAndSteps.CurrentUser = CurrentUser;
-                        this.StartPosition = FormStartPosition.CenterScreen;
-                        this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
                         this.Controls.Add(ctrlGoalsAndSteps);
                         this.btnClose.Left = 160;
                         this.btnClose.Top = 373;
                         this.Height = 430;
                         this.Width = 360;
+                        this.StartPosition = FormStartPosition.CenterScreen;
+                        this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+                        break;
+                    }
+                case MasterPageMode.WishList:
+                    {
+                        CtrlWishList ctrlWishList = new CtrlWishList();
+                        ctrlWishList.Form_Title = Form_Title;
+                        ctrlWishList.CurrentUser = CurrentUser;
+                        this.StartPosition = FormStartPosition.CenterScreen;
+                        this.VerticalScroll.Enabled = true;
+                        ctrlWishList.Height = 370;
+                        ctrlWishList.Width = 435;
+                        this.Height = 390;
+                        this.Width = 440;
+                        ctrlWishList.LoadWishList();
+                        this.Controls.Add(ctrlWishList);
                         break;
                     }
             }

@@ -6,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using MyPlanner.Logger;
+using MyPlanner.Common;
 
 namespace MyPlanner
 {
@@ -75,11 +77,25 @@ namespace MyPlanner
                 if ((i < 5) || (!_workweekonly))
                 {
                     CtrlTasksList task = new CtrlTasksList(CurrentUser, CurrentDate.AddDays(i), false, false, false);
-                    task.LoadTasks();
+                    task.Name = "task" + i.ToString();
+                    task.TasksListChanged += new EventHandler(taskListChanged);
+                    task.LoadTasks(false);
                     task.Top = 3;
                     task.Left = (i * (ctrlWidth+3)) + ((i) * 3) + 3;
                     task.Width = ctrlWidth;
                     this.Controls.Add(task);
+                }
+            }
+        }
+
+        private void taskListChanged(object sender, EventArgs e)
+        {
+            CtrlTasksList tsk = (CtrlTasksList)sender;
+            foreach (CtrlTasksList task in this.Controls)
+            {
+                if (tsk.Name != task.Name)
+                {
+                    task.LoadTasks(true);
                 }
             }
         }

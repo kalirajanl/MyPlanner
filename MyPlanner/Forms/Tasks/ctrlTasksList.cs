@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Drawing;
 using System.Data;
 using System.Linq;
@@ -8,12 +9,14 @@ using System.Text;
 using System.Windows.Forms;
 using MyPlanner.BLL;
 using MyPlanner.Common;
+using MyPlanner.Logger;
 using MyPlanner.Models;
 
 namespace MyPlanner
 {
     public partial class CtrlTasksList : BaseUserControl
     {
+        public event EventHandler TasksListChanged;
 
         private bool _showStatus = true;
         private bool _showPriority = true;
@@ -43,7 +46,7 @@ namespace MyPlanner
             _showStatus = showStatus;
             _showPriority = showPriority;
             _showOverDueTasks = IsDailyView;
-            LoadTasks();
+            //LoadTasks();
         }
 
         public bool ShowStatus
@@ -94,18 +97,21 @@ namespace MyPlanner
             }
         }
 
-        public void LoadTasks()
+        public void LoadTasks(bool taskListOnly)
         {
-            this.dgTasks.Left = 0;
-            this.dgTasks.Top = 30;
-            this.dgTasks.Height = this.Height - 35;
-            this.dgTasks.Width = this.Width - 5;
-            this.dgTasks.AutoGenerateColumns = false;
-            this.dgTasks.Columns[1].Width = 70;
-            this.dgTasks.Columns[2].Width = 40;
-            this.dgTasks.Columns[1].Visible = _showStatus;
-            this.dgTasks.Columns[2].Visible = _showPriority;
-            Form_Title = "Tasks List";
+            if (!taskListOnly)
+            {
+                this.dgTasks.Left = 0;
+                this.dgTasks.Top = 30;
+                this.dgTasks.Height = this.Height - 35;
+                this.dgTasks.Width = this.Width - 5;
+                this.dgTasks.AutoGenerateColumns = false;
+                this.dgTasks.Columns[1].Width = 70;
+                this.dgTasks.Columns[2].Width = 40;
+                this.dgTasks.Columns[1].Visible = _showStatus;
+                this.dgTasks.Columns[2].Visible = _showPriority;
+                Form_Title = "Tasks List";
+            }
             initPage();
         }
 
@@ -114,135 +120,101 @@ namespace MyPlanner
             this.lblDay.Text = Convert.ToDateTime(this.lblCurrentDate.Text).ToString("dddd");
             if (CurrentUser != null)
             {
+                CustomLogger.WriteUserActivity(CurrentUser, "Tasks set loading started at " + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss.fffff", CultureInfo.InvariantCulture));
                 this.dgTasks.DataSource = BLLTask.GetTasks(CurrentUser.UserID, null, Convert.ToDateTime(this.lblCurrentDate.Text), _showOverDueTasks, false);
+                CustomLogger.WriteUserActivity(CurrentUser, "Tasks set loading completed at " + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss.fffff", CultureInfo.InvariantCulture));
             }
         }
 
-        private void addTaskToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmEditTask childform = new frmEditTask(CurrentUser, PageMode.Add, CurrentDate);
-            childform.ShowDialog();
-            initPage();
-        }
+        //private void dgTasks_RowLeave(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    bool returnValue = false;
 
-        private void editTaskToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (this.dgTasks.CurrentRow == null)
-            {
-                ShowError("Please select a row.", Form_Title);
-            }
-            else
-            {
-                frmEditTask childform = new frmEditTask(CurrentUser, PageMode.Edit, CurrentDate);
-                childform.ItemID = (long)Convert.ToDecimal(this.dgTasks.CurrentRow.Cells[0].Value);
-                childform.ShowDialog();
-                initPage();
-            }
-        }
+        //    if (dgTasks.IsCurrentRowDirty)
+        //    {
+        //        returnValue = addupdateRow(e);
+        //    }
 
-        private void dgTasks_RowLeave(object sender, DataGridViewCellEventArgs e)
-        {
-            bool returnValue = false;
+        //    if (!returnValue)
+        //    {
 
-            if (dgTasks.IsCurrentRowDirty)
-            {
-                returnValue = addupdateRow(e);
-            }
+        //    }
+        //}
 
-            if (!returnValue)
-            {
+        //private bool addupdateRow(DataGridViewCellEventArgs e)
+        //{
+        //    bool returnValue = false;
+        //    if (validateCurrentRowData(false))
+        //    {
+        //        long taskID = (long)Convert.ToDecimal(this.dgTasks.CurrentRow.Cells[0].Value);
+        //        Task task;
+        //        if (taskID <= 0)
+        //        {
+        //            task = new Task();
+        //        }
+        //        else
+        //        {
+        //            task = BLLTask.GetTaskByID(taskID);
+        //        }
+        //        task.ForUser = CurrentUser;
+        //        task.Categories = new List<Category>();
+        //        task.IsGoalStep = false;
+        //        task.IsMasterTask = false;
+        //        task.IsRecurring = false;
+        //        task.Priority = TaskPriorities.C;
+        //        task.Status = TaskStatuses.Normal;
+        //        task.TaskNotes = "";
+        //        task.TaskRecurrence = null;
+        //        task.TaskName = this.dgTasks.CurrentRow.Cells[3].EditedFormattedValue.ToString();
+        //        task.TaskDate = CurrentDate;
+        //        if (taskID <= 0)
+        //        {
+        //            BLLTask.AddTask(task);
+        //        }
+        //        else
+        //        {
+        //            BLLTask.UpdateTask(task);
+        //        }
+        //        returnValue = true;
+        //    }
 
-            }
-        }
+        //    return returnValue;
+        //}
 
-        private bool addupdateRow(DataGridViewCellEventArgs e)
-        {
-            bool returnValue = false;
-            if (validateCurrentRowData(false))
-            {
-                long taskID = (long)Convert.ToDecimal(this.dgTasks.CurrentRow.Cells[0].Value);
-                Task task;
-                if (taskID <= 0)
-                {
-                    task = new Task();
-                }
-                else
-                {
-                    task = BLLTask.GetTaskByID(taskID);
-                }
-                task.ForUser = CurrentUser;
-                task.Categories = new List<Category>();
-                task.IsGoalStep = false;
-                task.IsMasterTask = false;
-                task.IsRecurring = false;
-                task.Priority = TaskPriorities.C;
-                task.Status = TaskStatuses.Normal;
-                task.TaskNotes = "";
-                task.TaskRecurrence = null;
-                task.TaskName = this.dgTasks.CurrentRow.Cells[3].EditedFormattedValue.ToString();
-                task.TaskDate = CurrentDate;
-                if (taskID <= 0)
-                {
-                    BLLTask.AddTask(task);
-                }
-                else
-                {
-                    BLLTask.UpdateTask(task);
-                }
-                returnValue = true;
-            }
+        //private bool validateCurrentRowData(bool showMessage)
+        //{
+        //    bool returnValue = true;
+        //    int colIndex = 1;
+        //    int currentRowIndex = this.dgTasks.CurrentRow.Index;
+        //    string errMessage = "";
+        //    if (this.dgTasks.CurrentRow != null)
+        //    {
+        //        if (this.dgTasks.CurrentRow.Cells[2].EditedFormattedValue.ToString().Trim().Equals(""))
+        //        {
+        //            errMessage = "Please enter Task Name";
+        //            returnValue = false;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        errMessage = "No Active Selection";
+        //        returnValue = false;
+        //    }
 
-            return returnValue;
-        }
-
-        private bool validateCurrentRowData(bool showMessage)
-        {
-            bool returnValue = true;
-            int colIndex = 1;
-            int currentRowIndex = this.dgTasks.CurrentRow.Index;
-            string errMessage = "";
-            if (this.dgTasks.CurrentRow != null)
-            {
-                if (this.dgTasks.CurrentRow.Cells[2].EditedFormattedValue.ToString().Trim().Equals(""))
-                {
-                    errMessage = "Please enter Task Name";
-                    returnValue = false;
-                }
-            }
-            else
-            {
-                errMessage = "No Active Selection";
-                returnValue = false;
-            }
-
-            if (!returnValue)
-            {
-                if (showMessage)
-                {
-                    ShowError(errMessage, Form_Title);
-                }
-                dgTasks.ClearSelection();
-                dgTasks.Rows[currentRowIndex].Selected = true;
-                dgTasks.CurrentCell = dgTasks[colIndex, currentRowIndex];
-                dgTasks.CurrentCell.ReadOnly = false;
-                //this.dgTasks.BeginEdit(true);
-            }
-            return returnValue;
-        }
-
-        private void deleteTaskToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (this.dgTasks.CurrentRow == null)
-            {
-                ShowError("Please select a row.", Form_Title);
-            }
-            else
-            {
-                long taskID = (long)Convert.ToDecimal(this.dgTasks.CurrentRow.Cells[0].Value);
-                BLLTask.DeleteTask(taskID);
-                initPage();
-            }
-        }
+        //    if (!returnValue)
+        //    {
+        //        if (showMessage)
+        //        {
+        //            ShowError(errMessage, Form_Title);
+        //        }
+        //        dgTasks.ClearSelection();
+        //        dgTasks.Rows[currentRowIndex].Selected = true;
+        //        dgTasks.CurrentCell = dgTasks[colIndex, currentRowIndex];
+        //        dgTasks.CurrentCell.ReadOnly = false;
+        //        //this.dgTasks.BeginEdit(true);
+        //    }
+        //    return returnValue;
+        //}
 
         private void mnuNormal_Click(object sender, EventArgs e)
         {
@@ -292,7 +264,7 @@ namespace MyPlanner
                 this.deleteTaskToolStripMenuItem.Enabled = true;
                 this.forwardTaskToolStripMenuItem.Enabled = true;
             }
-            if (ShowStatus)
+            if (_showStatus)
             {
                 this.showStatusToolStripMenuItem.Text = "Hide Status";
             }
@@ -300,7 +272,7 @@ namespace MyPlanner
             {
                 this.showStatusToolStripMenuItem.Text = "Show Status";
             }
-            if (ShowPriority)
+            if (_showPriority)
             {
                 this.showPriorityToolStripMenuItem.Text = "Hide Priority";
             }
@@ -308,7 +280,7 @@ namespace MyPlanner
             {
                 this.showPriorityToolStripMenuItem.Text = "Show Priority";
             }
-            if (!ShowOverDueTasks)
+            if (!_showOverDueTasks)
             {
                 this.showOverdueTasksToolStripMenuItem.Text = "Show Overdue Tasks";
             }
@@ -321,13 +293,13 @@ namespace MyPlanner
         private void showStatusToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowStatus = !ShowStatus;
-            LoadTasks();
+            LoadTasks(false);
         }
 
         private void showPriorityToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowPriority = !ShowPriority;
-            LoadTasks();
+            LoadTasks(false);
         }
 
         private void dgTasks_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -368,13 +340,15 @@ namespace MyPlanner
                         }
                 }
                 e.CellStyle.Font = tn;
+                DataGridViewCell cell = this.dgTasks.Rows[e.RowIndex].Cells[3];
+                cell.ToolTipText = tasks[e.RowIndex].TaskNotes;
             }
         }
 
         private void showOverdueTasksToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowOverDueTasks = !ShowOverDueTasks;
-            LoadTasks();
+            LoadTasks(false);
         }
 
         private void cancelledToolStripMenuItem_Click(object sender, EventArgs e)
@@ -405,8 +379,6 @@ namespace MyPlanner
                 showTaskForward(TaskStatuses.Cancelled);
             }
         }
-
-       
 
         private void deleteForwardToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -452,12 +424,66 @@ namespace MyPlanner
             forwardOnlyToolStripMenuItem1_Click(null, null);
         }
 
+        private void addTaskToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEditTask childform = new frmEditTask(CurrentUser, PageMode.Add, CurrentDate);
+            childform.ShowDialog();
+            initPage();
+            raiseTaskListChangedEvent();
+        }
+
+        private void editTaskToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.dgTasks.CurrentRow == null)
+            {
+                ShowError("Please select a row.", Form_Title);
+            }
+            else
+            {
+                frmEditTask childform = new frmEditTask(CurrentUser, PageMode.Edit, CurrentDate);
+                childform.ItemID = (long)Convert.ToDecimal(this.dgTasks.CurrentRow.Cells[0].Value);
+                childform.ShowDialog();
+                initPage();
+                raiseTaskListChangedEvent();
+            }
+        }
+
         private void showTaskForward(TaskStatuses currentTaskStatus)
         {
             frmEditTask childform = new frmEditTask(CurrentUser, PageMode.Forward, CurrentDate, currentTaskStatus);
             childform.ItemID = (long)Convert.ToDecimal(this.dgTasks.CurrentRow.Cells[0].Value);
             childform.ShowDialog();
             initPage();
+            raiseTaskListChangedEvent();
         }
+
+        private void deleteTaskToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.dgTasks.CurrentRow == null)
+            {
+                ShowError("Please select a row.", Form_Title);
+            }
+            else
+            {
+                long taskID = (long)Convert.ToDecimal(this.dgTasks.CurrentRow.Cells[0].Value);
+                BLLTask.DeleteTask(taskID);
+                initPage();
+                raiseTaskListChangedEvent();
+            }
+        }
+
+        private void raiseTaskListChangedEvent()
+        {
+            if (TasksListChanged != null)
+            {
+                TasksListChanged(this, new EventArgs());
+            }
+        }
+
+        private void reloadListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            initPage();
+        }
+
     }
 }

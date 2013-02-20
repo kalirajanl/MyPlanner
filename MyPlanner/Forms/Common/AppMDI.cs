@@ -22,6 +22,7 @@ namespace MyPlanner
         frmDailyView wndDayView;
         frmPlanOfWeek wndPlanOfWeek;
         frmWeeklyView wndWeekView;
+        frmMaster wndWishList;
 
         private AppMDI()
         {
@@ -182,9 +183,8 @@ namespace MyPlanner
             wndWeekView.CurrentUser = CurrentUser;
             wndWeekView.ShowInTaskbar = false;
             wndWeekView.MdiParent = this;
-            wndWeekView.CurrentDate = forDate;
             wndWeekView.ShowWorkWeekOnly = workWeekOnly;
-            wndWeekView.LoadTasks();
+            wndWeekView.CurrentDate = forDate;
             wndWeekView.BringToFront();
             wndWeekView.Show();
         }
@@ -218,13 +218,7 @@ namespace MyPlanner
         {
             showWeeklyView(DateTime.Today, false);
         }
-
-       
-        private void AppMDI_Load(object sender, EventArgs e)
-        {
-            showDailyView();
-        }
-
+     
         private void btnExit_Click(object sender, EventArgs e)
         {
             ExitToolsStripMenuItem_Click(null, null);
@@ -240,6 +234,21 @@ namespace MyPlanner
             CustomLogger.WriteGeneralActivity(ConfigReader.APPLICATION_TITLE + " Application stopped successfully.");
         }
 
-      
+        private void wishListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (wndWishList != null)
+            {
+                wndWishList.Close();
+            }
+            wndWishList = new frmMaster(CurrentUser, MasterPageMode.WishList);
+            wndWishList.MdiParent = this;
+            wndWishList.BringToFront();
+            wndWishList.Show();
+        }
+
+        private void AppMDI_Load(object sender, EventArgs e)
+        {
+            showDailyView();
+        }
     }
 }

@@ -70,6 +70,7 @@
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wishListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -306,7 +307,8 @@
             this.mastersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.missionToolStripMenuItem,
             this.valueToolStripMenuItem,
-            this.goalsStepsToolStripMenuItem});
+            this.goalsStepsToolStripMenuItem,
+            this.wishListToolStripMenuItem});
             this.mastersToolStripMenuItem.Name = "mastersToolStripMenuItem";
             this.mastersToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.mastersToolStripMenuItem.Text = "Planning";
@@ -426,6 +428,14 @@
             this.aboutToolStripMenuItem.Text = "&About ... ...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // wishListToolStripMenuItem
+            // 
+            this.wishListToolStripMenuItem.Name = "wishListToolStripMenuItem";
+            this.wishListToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
+            this.wishListToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.wishListToolStripMenuItem.Text = "WishList";
+            this.wishListToolStripMenuItem.Click += new System.EventHandler(this.wishListToolStripMenuItem_Click);
+            // 
             // AppMDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -499,6 +509,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton btnExit;
         private System.Windows.Forms.ToolStripMenuItem weeklyplanning;
+        private System.Windows.Forms.ToolStripMenuItem wishListToolStripMenuItem;
     }
 }
 

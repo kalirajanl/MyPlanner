@@ -24,6 +24,7 @@ namespace MyPlanner
         private void btnCancel_Click(object sender, EventArgs e)
         {
             CustomLogger.WriteGeneralActivity("Application Stopped normally.");
+            this.Close();
             Application.Exit();
         }
 

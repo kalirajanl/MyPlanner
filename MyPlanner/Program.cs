@@ -32,11 +32,6 @@ namespace MyPlanner
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new AppLogin());
-                //AppUser usr = BLLAppUser.GetUserByID(1);
-                //AppMDI appMDI = new AppMDI(usr);
-                //Application.Run(appMDI);
-
-                Application.Run(new MyPlanner.Forms.frmtest());
             }
         }
 

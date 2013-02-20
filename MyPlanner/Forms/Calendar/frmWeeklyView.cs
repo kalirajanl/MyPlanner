@@ -25,7 +25,7 @@ namespace MyPlanner
             this.Width = 1274;
             this.Text = "Calendar - Weekly View";
             Form_Title = "Weekly View";
-            this.dtpCurrentDate.Value = MyPlannerValidators.StartOfWeek(DateTime.Today, DayOfWeek.Monday);
+            //this.dtpCurrentDate.Value = MyPlannerValidators.StartOfWeek(DateTime.Today, DayOfWeek.Monday);
         }
 
         public DateTime CurrentDate
@@ -36,7 +36,7 @@ namespace MyPlanner
             }
             set
             {
-                this.dtpCurrentDate.Value = value;
+                this.dtpCurrentDate.Value = MyPlannerValidators.StartOfWeek(value, DayOfWeek.Monday);
             }
         }
 
@@ -62,7 +62,7 @@ namespace MyPlanner
 
         private void dtpCurrentDate_ValueChanged(object sender, EventArgs e)
         {
-            this.dtpCurrentDate.Value = MyPlannerValidators.StartOfWeek(this.dtpCurrentDate.Value, DayOfWeek.Monday);
+            //this.dtpCurrentDate.Value = MyPlannerValidators.StartOfWeek(this.dtpCurrentDate.Value, DayOfWeek.Monday);
             initPage();
         }
 
@@ -70,13 +70,8 @@ namespace MyPlanner
         {
             this.ctrlWeeklyView1.CurrentUser = CurrentUser;
             this.ctrlWeeklyView1.ShowWorkWeekOnly = ShowWorkWeekOnly;
-            this.ctrlWeeklyView1.CurrentDate = this.dtpCurrentDate.Value;
+            this.ctrlWeeklyView1.CurrentDate = MyPlannerValidators.StartOfWeek(this.dtpCurrentDate.Value, DayOfWeek.Monday);
             this.ctrlWeeklyView1.LoadTasks();
-        }
-
-        public void LoadTasks()
-        {
-            initPage();
         }
 
     }

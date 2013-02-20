@@ -66,6 +66,7 @@
     <Compile Include="WeeklyPlanning\BigRock.cs" />
     <Compile Include="WeeklyPlanning\CompassItem.cs" />
     <Compile Include="WeeklyPlanning\CompassRole.cs" />
+    <Compile Include="Wishlist\WishListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyPlanner.Common\MyPlanner.Common.csproj">

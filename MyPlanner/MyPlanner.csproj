@@ -14,17 +14,20 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>D:\Rajan\PublishArea\MyPlanner\20130201\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>D:\Rajan\PublishArea\MyPlanner\</PublishUrl>
+    <Install>false</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://localhost/MyPlanner/</InstallUrl>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.8.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
@@ -112,12 +115,6 @@
     <Compile Include="Forms\Calendar\frmWeeklyView.Designer.cs">
       <DependentUpon>frmWeeklyView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmtest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmtest.Designer.cs">
-      <DependentUpon>frmtest.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Notes\CtrlDailyNotes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -190,6 +187,18 @@
     <Compile Include="Forms\Planning\frmPlanOfWeek.Designer.cs">
       <DependentUpon>frmPlanOfWeek.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Wishlist\ctrlWishList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Wishlist\ctrlWishList.designer.cs">
+      <DependentUpon>ctrlWishList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Wishlist\frmEditWishListItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Wishlist\frmEditWishListItem.designer.cs">
+      <DependentUpon>frmEditWishListItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\Tasks\ctrlTasksList.cs">
@@ -235,9 +244,6 @@
     <EmbeddedResource Include="Forms\Calendar\frmWeeklyView.resx">
       <DependentUpon>frmWeeklyView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmtest.resx">
-      <DependentUpon>frmtest.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Goals\EditGoal.resx">
       <DependentUpon>EditGoal.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,6 +282,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Planning\frmPlanOfWeek.resx">
       <DependentUpon>frmPlanOfWeek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Wishlist\ctrlWishList.resx">
+      <DependentUpon>ctrlWishList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Wishlist\frmEditWishListItem.resx">
+      <DependentUpon>frmEditWishListItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

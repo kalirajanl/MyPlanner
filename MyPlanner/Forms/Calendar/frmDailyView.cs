@@ -42,7 +42,7 @@ namespace MyPlanner
             {
                 this.ctrlTasksList1.ShowOverDueTasks = true;
             }
-            this.ctrlTasksList1.LoadTasks();
+            this.ctrlTasksList1.LoadTasks(false);
 
             this.ctrlDailyNotes1.CurrentUser = CurrentUser;
             this.ctrlDailyNotes1.Top = 40;

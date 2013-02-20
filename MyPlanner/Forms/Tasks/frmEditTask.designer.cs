@@ -70,13 +70,13 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(416, 251);
+            this.panel1.Size = new System.Drawing.Size(416, 479);
             this.panel1.TabIndex = 0;
             // 
             // lblCurrentDate
             // 
             this.lblCurrentDate.AutoSize = true;
-            this.lblCurrentDate.Location = new System.Drawing.Point(70, 227);
+            this.lblCurrentDate.Location = new System.Drawing.Point(77, 452);
             this.lblCurrentDate.Name = "lblCurrentDate";
             this.lblCurrentDate.Size = new System.Drawing.Size(13, 13);
             this.lblCurrentDate.TabIndex = 15;
@@ -141,7 +141,7 @@
             // lblGoalID
             // 
             this.lblGoalID.AutoSize = true;
-            this.lblGoalID.Location = new System.Drawing.Point(51, 227);
+            this.lblGoalID.Location = new System.Drawing.Point(58, 452);
             this.lblGoalID.Name = "lblGoalID";
             this.lblGoalID.Size = new System.Drawing.Size(13, 13);
             this.lblGoalID.TabIndex = 11;
@@ -161,7 +161,7 @@
             // lblItemID
             // 
             this.lblItemID.AutoSize = true;
-            this.lblItemID.Location = new System.Drawing.Point(28, 227);
+            this.lblItemID.Location = new System.Drawing.Point(35, 452);
             this.lblItemID.Name = "lblItemID";
             this.lblItemID.Size = new System.Drawing.Size(13, 13);
             this.lblItemID.TabIndex = 10;
@@ -173,7 +173,7 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Image = global::MyPlanner.Properties.Resources.close_16X16;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(330, 218);
+            this.btnCancel.Location = new System.Drawing.Point(337, 443);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(63, 23);
             this.btnCancel.TabIndex = 8;
@@ -186,7 +186,7 @@
             // 
             this.btnSave.Image = global::MyPlanner.Properties.Resources.save_16X16;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(261, 218);
+            this.btnSave.Location = new System.Drawing.Point(268, 443);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(63, 23);
             this.btnSave.TabIndex = 7;
@@ -197,10 +197,12 @@
             // 
             // txtTaskNotes
             // 
+            this.txtTaskNotes.AcceptsReturn = true;
+            this.txtTaskNotes.AcceptsTab = true;
             this.txtTaskNotes.Location = new System.Drawing.Point(89, 121);
             this.txtTaskNotes.Multiline = true;
             this.txtTaskNotes.Name = "txtTaskNotes";
-            this.txtTaskNotes.Size = new System.Drawing.Size(311, 90);
+            this.txtTaskNotes.Size = new System.Drawing.Size(311, 316);
             this.txtTaskNotes.TabIndex = 6;
             this.txtTaskNotes.TextChanged += new System.EventHandler(this.txtNotes_TextChanged);
             // 
@@ -245,7 +247,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(440, 273);
+            this.ClientSize = new System.Drawing.Size(438, 497);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

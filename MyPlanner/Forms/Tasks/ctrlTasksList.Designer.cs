@@ -59,6 +59,8 @@
             this.showPriorityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.showOverdueTasksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.reloadListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblCurrentDate = new System.Windows.Forms.Label();
             this.lblDay = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgTasks)).BeginInit();
@@ -89,7 +91,6 @@
             this.dgTasks.Size = new System.Drawing.Size(393, 427);
             this.dgTasks.TabIndex = 0;
             this.dgTasks.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgTasks_CellFormatting);
-            this.dgTasks.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgTasks_RowLeave);
             // 
             // TaskID
             // 
@@ -121,26 +122,26 @@
             this.mnuDelegated,
             this.cancelledToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(153, 158);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(134, 136);
             // 
             // mnuNormal
             // 
             this.mnuNormal.Name = "mnuNormal";
-            this.mnuNormal.Size = new System.Drawing.Size(152, 22);
+            this.mnuNormal.Size = new System.Drawing.Size(133, 22);
             this.mnuNormal.Text = "Normal";
             this.mnuNormal.Click += new System.EventHandler(this.mnuNormal_Click);
             // 
             // mnuInProgress
             // 
             this.mnuInProgress.Name = "mnuInProgress";
-            this.mnuInProgress.Size = new System.Drawing.Size(152, 22);
+            this.mnuInProgress.Size = new System.Drawing.Size(133, 22);
             this.mnuInProgress.Text = "In Progress";
             this.mnuInProgress.Click += new System.EventHandler(this.mnuInProgress_Click);
             // 
             // mnuCompleted
             // 
             this.mnuCompleted.Name = "mnuCompleted";
-            this.mnuCompleted.Size = new System.Drawing.Size(152, 22);
+            this.mnuCompleted.Size = new System.Drawing.Size(133, 22);
             this.mnuCompleted.Text = "Completed";
             this.mnuCompleted.Click += new System.EventHandler(this.mnuCompleted_Click);
             // 
@@ -152,7 +153,7 @@
             this.deleteForwardToolStripMenuItem1,
             this.forwardOnlyToolStripMenuItem});
             this.mnuForwarded.Name = "mnuForwarded";
-            this.mnuForwarded.Size = new System.Drawing.Size(152, 22);
+            this.mnuForwarded.Size = new System.Drawing.Size(133, 22);
             this.mnuForwarded.Text = "Forward";
             // 
             // cancelForwardToolStripMenuItem1
@@ -186,14 +187,14 @@
             // mnuDelegated
             // 
             this.mnuDelegated.Name = "mnuDelegated";
-            this.mnuDelegated.Size = new System.Drawing.Size(152, 22);
+            this.mnuDelegated.Size = new System.Drawing.Size(133, 22);
             this.mnuDelegated.Text = "Delegate";
             this.mnuDelegated.Click += new System.EventHandler(this.mnuDelegated_Click);
             // 
             // cancelledToolStripMenuItem
             // 
             this.cancelledToolStripMenuItem.Name = "cancelledToolStripMenuItem";
-            this.cancelledToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.cancelledToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.cancelledToolStripMenuItem.Text = "Cancelled";
             this.cancelledToolStripMenuItem.Click += new System.EventHandler(this.cancelledToolStripMenuItem_Click);
             // 
@@ -228,9 +229,11 @@
             this.showStatusToolStripMenuItem,
             this.showPriorityToolStripMenuItem,
             this.toolStripMenuItem1,
-            this.showOverdueTasksToolStripMenuItem});
+            this.showOverdueTasksToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.reloadListToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(184, 170);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(184, 198);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // addTaskToolStripMenuItem
@@ -324,6 +327,19 @@
             this.showOverdueTasksToolStripMenuItem.Text = "Show Overdue Tasks";
             this.showOverdueTasksToolStripMenuItem.Click += new System.EventHandler(this.showOverdueTasksToolStripMenuItem_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(180, 6);
+            // 
+            // reloadListToolStripMenuItem
+            // 
+            this.reloadListToolStripMenuItem.Name = "reloadListToolStripMenuItem";
+            this.reloadListToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
+            this.reloadListToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.reloadListToolStripMenuItem.Text = "Refresh Task List";
+            this.reloadListToolStripMenuItem.Click += new System.EventHandler(this.reloadListToolStripMenuItem_Click);
+            // 
             // lblCurrentDate
             // 
             this.lblCurrentDate.AutoSize = true;
@@ -395,5 +411,7 @@
         private System.Windows.Forms.ToolStripMenuItem deleteForwardToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem forwardOnlyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem forwardOnlyToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem reloadListToolStripMenuItem;
     }
 }

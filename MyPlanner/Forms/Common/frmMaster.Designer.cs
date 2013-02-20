@@ -49,6 +49,7 @@
             this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(772, 354);
             this.Controls.Add(this.btnClose);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "frmMaster";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMission";

@@ -44,8 +44,19 @@ namespace MyPlanner.BLL
             task.Status = TaskStatuses.Normal;
             task.StatusText = task.Status.ToString();
             task.TaskDate = toDate;
-            DALTask.AddTask(task);
-            returnValue = DALTask.UpdateTaskStatus(taskID, currentTaskStatus);
+            long newTaskID = DALTask.AddTask(task);
+            if (newTaskID > 0)
+            {
+                returnValue = true;
+                if (currentTaskStatus == TaskStatuses.Deleted)
+                {
+                    returnValue = DALTask.DeleteTask(taskID);
+                }
+                else
+                {
+                    returnValue = DALTask.UpdateTaskStatus(taskID, currentTaskStatus);
+                }
+            }
             return returnValue;
         }
 
