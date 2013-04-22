@@ -18,11 +18,11 @@ namespace MyPlanner.DAL
 
             if (addAsOfDateOverDueTasks)
             {
-                dtTasks = SQLWrapper.GetDataTable(new SelectQueryData { TableName = "TSK_Tasks", FilterCondition = "IsGoalStep = 0 AND UserID = " + ForUserID + " AND ((TaskDate = '" + forDate.ToString(Constants.DATE_FORMAT_SQL) + "') OR (TaskDate <= '" + forDate.ToString(Constants.DATE_FORMAT_SQL) + "') AND TaskStatusID in (SELECT TaskStatusID FROM TSK_TaskStatuses WHERE IsCompletedStatus != 1))", OrderBy = "TaskDate,TaskPriorityID" });
+                dtTasks = SQLWrapper.GetDataTable(new SelectQueryData { TableName = "TSK_Tasks", FilterCondition = "IsGoalStep = 0 AND UserID = " + ForUserID + " AND ((TaskDate = '" + forDate.ToString(Constants.DATE_FORMAT_SQL) + "') OR (TaskDate <= '" + forDate.ToString(Constants.DATE_FORMAT_SQL) + "') AND TaskStatusID in (SELECT TaskStatusID FROM TSK_TaskStatuses WHERE IsCompletedStatus != 1))", OrderBy = "TaskDate,TaskPriorityID,TaskName,TaskID" });
             }
             else
             {
-                dtTasks = SQLWrapper.GetDataTable(new SelectQueryData { TableName = "TSK_Tasks", FilterCondition = "IsGoalStep = 0 AND UserID = " + ForUserID + " AND TaskDate = '" + forDate.ToString(Constants.DATE_FORMAT_SQL) + "'", OrderBy = "TaskPriorityID" });
+                dtTasks = SQLWrapper.GetDataTable(new SelectQueryData { TableName = "TSK_Tasks", FilterCondition = "IsGoalStep = 0 AND UserID = " + ForUserID + " AND TaskDate = '" + forDate.ToString(Constants.DATE_FORMAT_SQL) + "'", OrderBy = "TaskPriorityID,TaskName,TaskID" });
             }
 
 

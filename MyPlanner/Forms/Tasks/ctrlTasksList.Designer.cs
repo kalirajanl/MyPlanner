@@ -63,6 +63,7 @@
             this.reloadListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblCurrentDate = new System.Windows.Forms.Label();
             this.lblDay = new System.Windows.Forms.Label();
+            this.copyTaskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgTasks)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -225,6 +226,7 @@
             this.editTaskToolStripMenuItem,
             this.forwardTaskToolStripMenuItem,
             this.deleteTaskToolStripMenuItem,
+            this.copyTaskToolStripMenuItem,
             this.toolStripSeparator1,
             this.showStatusToolStripMenuItem,
             this.showPriorityToolStripMenuItem,
@@ -233,7 +235,7 @@
             this.toolStripSeparator2,
             this.reloadListToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(184, 198);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(184, 242);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // addTaskToolStripMenuItem
@@ -360,6 +362,13 @@
             this.lblDay.TabIndex = 2;
             this.lblDay.Text = "Monday";
             // 
+            // copyTaskToolStripMenuItem
+            // 
+            this.copyTaskToolStripMenuItem.Name = "copyTaskToolStripMenuItem";
+            this.copyTaskToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.copyTaskToolStripMenuItem.Text = "Copy Task";
+            this.copyTaskToolStripMenuItem.Click += new System.EventHandler(this.copyTaskToolStripMenuItem_Click);
+            // 
             // CtrlTasksList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -413,5 +422,6 @@
         private System.Windows.Forms.ToolStripMenuItem forwardOnlyToolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem reloadListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyTaskToolStripMenuItem;
     }
 }

@@ -328,6 +328,7 @@ namespace MyPlanner
                 {
                     case TaskStatuses.Completed:
                     case TaskStatuses.Forwarded:
+                    case TaskStatuses.Delegated:
                     case TaskStatuses.Deleted:
                     case TaskStatuses.Cancelled:
                         {
@@ -483,6 +484,21 @@ namespace MyPlanner
         private void reloadListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             initPage();
+        }
+
+        private void copyTaskToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.dgTasks.CurrentRow == null)
+            {
+                ShowError("Please select a row.", Form_Title);
+            }
+            else
+            {
+                long taskID = (long)Convert.ToDecimal(this.dgTasks.CurrentRow.Cells[0].Value);
+                BLLTask.CopyTask(taskID);
+                initPage();
+                raiseTaskListChangedEvent();
+            }
         }
 
     }

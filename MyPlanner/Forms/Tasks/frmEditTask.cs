@@ -96,7 +96,7 @@ namespace MyPlanner
         private void enableNonDateFields(bool enabled)
         {
             this.txtTaskName.ReadOnly = !enabled;
-            this.txtTaskNotes.ReadOnly = !enabled;
+            this.txtTaskNotes.ReadOnly = false;
             this.cboStatus.Enabled = enabled;
             this.cboPriority.Enabled = enabled;
             this.chklstCategory.Enabled = enabled;
@@ -245,7 +245,7 @@ namespace MyPlanner
                         case PageMode.Edit:
                         case PageMode.Forward:
                             {
-                                task = BLLTask.GetTaskByID((long)Convert.ToDecimal(this.lblItemID.Text));
+                                task = BLLTask.GetTaskByID((long)Convert.ToDecimal(this.lblItemID.Text) );
                                 break;
                             }
                     }
@@ -281,7 +281,7 @@ namespace MyPlanner
                             }
                         case PageMode.Forward:
                             {
-                                returnValue = BLLTask.ForwardTask(task.TaskID, this.dtpDueOn.Value, task.Status);
+                                returnValue = BLLTask.ForwardTask(task.TaskID, this.dtpDueOn.Value, task.Status, task.TaskNotes);
                                 break;
                             }
                     }

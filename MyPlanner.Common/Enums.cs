@@ -7,7 +7,7 @@ using System.Collections.Generic;
 namespace MyPlanner.Common
 {
 
-    #region Website Related Enums
+    #region UI Related Enums
 
     public enum PageMode
     {

@@ -36,7 +36,21 @@ namespace MyPlanner.BLL
             return DALTask.UpdateTaskStatus(taskID, withStatus);
         }
 
-        public static bool ForwardTask(long taskID, DateTime toDate, TaskStatuses currentTaskStatus = TaskStatuses.Forwarded)
+        public static bool CopyTask(long taskID)
+        {
+            bool returnValue = false;
+
+            Task task = DALTask.GetTaskByID(taskID);
+            task.Status = TaskStatuses.Normal;
+            long newTaskID = DALTask.AddTask(task);
+            if (newTaskID > 0)
+            {
+                returnValue = true;
+            }
+            return returnValue;
+        }
+
+        public static bool ForwardTask(long taskID, DateTime toDate, TaskStatuses currentTaskStatus = TaskStatuses.Forwarded, string taskNotes="")
         {
             bool returnValue = false;
 
@@ -44,6 +58,7 @@ namespace MyPlanner.BLL
             task.Status = TaskStatuses.Normal;
             task.StatusText = task.Status.ToString();
             task.TaskDate = toDate;
+            task.TaskNotes = taskNotes;
             long newTaskID = DALTask.AddTask(task);
             if (newTaskID > 0)
             {
